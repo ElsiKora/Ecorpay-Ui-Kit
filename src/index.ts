@@ -11,6 +11,7 @@ export { Input, type InputProps } from './shared/Input/Input';
 export { Radio, type RadioProps } from './shared/Radio/Radio';
 export { Switch, type SwitchProps } from './shared/Switch/Switch';
 export { Toast, type ToastProps } from './shared/Toast/Toast';
+export { Skeleton, type SkeletonProps } from './shared/Skeleton/Skeleton';
 
 import tailwindConfig from '../tailwind.config';
 export { tailwindConfig };
