@@ -33,7 +33,7 @@ export const Banner: FC<BannerProps> = (props) => {
 
   return (
     <Comp className={cn(bannerVariants({ variant }))}>
-      <h3 className="font-medium mob:text-base tablet:text-[1.375rem]">{titile}</h3>
+      <h3 className="font-medium mob:text-base tablet:text-xl">{titile}</h3>
       <p className="text-black mob:text-xs tablet:text-sm">{description}</p>
       {/* <button className="absolute mob:right-15px mob:top-17px tablet:right-5 tablet:top-5">
         <CloseIcon />
