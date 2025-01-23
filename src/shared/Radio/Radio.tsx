@@ -3,7 +3,7 @@ import CheckedIcon from '@/icons/radioChecked.svg';
 import UncheckedIcon from '@/icons/radioUnchecked.svg';
 import { cn } from '@/utils/cn';
 
-interface RadioProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
+export interface RadioProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label?: string;
 }
 

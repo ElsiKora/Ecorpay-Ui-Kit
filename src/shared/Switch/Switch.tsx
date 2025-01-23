@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 import { cn } from '@/utils/cn';
 
-interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+export interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
   children?: ReactNode;
 }
 

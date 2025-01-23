@@ -3,7 +3,7 @@ import CheckedIcon from '@/icons/checkboxChecked.svg';
 import UncheckedIcon from '@/icons/checkboxUnchecked.svg';
 import { cn } from '@/utils/cn';
 
-interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
+export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label?: string;
 }
 

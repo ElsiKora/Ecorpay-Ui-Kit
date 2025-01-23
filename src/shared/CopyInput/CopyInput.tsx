@@ -5,7 +5,7 @@ import IconCopy from '@/icons/copy.svg';
 import IconCopyDone from '@/icons/copyDone.svg';
 import { cn } from '@/utils/cn';
 
-interface CopyInputProps
+export interface CopyInputProps
   extends Pick<
       CopyButtonProps,
       'valueToCopy' | 'copiedStateHideDelay' | 'copyIconClassName' | 'copiedIconClassName'
