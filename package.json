@@ -36,8 +36,8 @@
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@commitlint/cz-commitlint": "^19.6.1",
-    "@commitlint/types": "^19.5.0",
     "@commitlint/format": "^19.5.0",
+    "@commitlint/types": "^19.5.0",
     "@eslint/js": "^10.0.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-terser": "^0.4.4",
@@ -94,7 +94,8 @@
     "react-dom": "^19.0.0"
   },
   "dependencies": {
-    "@radix-ui/react-slot": "^1.1.1"
+    "@radix-ui/react-slot": "^1.1.1",
+    "@radix-ui/react-tooltip": "^1.1.7"
   },
   "lint-staged": {
     "**/*.{ts,tsx,css,js,jsx,json,md}": [
