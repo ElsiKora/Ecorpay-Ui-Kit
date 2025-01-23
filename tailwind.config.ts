@@ -5,7 +5,13 @@ export default {
   theme: {
     extend: {
       fontSize: {
-        xxs: ['0.625rem', '0.725rem'],
+        xxs: ['0.625rem', '130%'], // 10px
+        xs: ['0.75rem', '130%'], // 12px
+        sm: ['0.875rem', '130%'], // 14px
+        base: ['1rem', '130%'], // 16px
+        lg: ['1.125rem', '130%'], // 18px
+        xl: ['1.375rem', '130%'], // 22px
+        xxl: ['2.625rem', '130%'], // 42px
       },
       spacing: {
         '1px': '0.0625rem',
