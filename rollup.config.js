@@ -63,44 +63,11 @@ export default defineConfig([
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     external: [/\.(css|scss)$/],
     plugins: [
-      dts({
-        tsconfig: './tsconfig.json',
-      }),
+      //   dts({
+      //     tsconfig: './tsconfig.json',
+      //   }),
+      dts(),
       del({ targets: 'dist/types', hook: 'buildEnd' }),
     ],
   },
-  //   {
-  //     input: 'src/assets/fonts.css',
-  //     output: [
-  //       {
-  //         file: 'dist/fonts.css',
-  //       },
-  //     ],
-  //     external: [/\.(ts|tsx|js|jsx|json)$/],
-
-  //     plugins: [
-  //       postcss({
-  //         extract: 'fonts.css',
-  //         minimize: true,
-  //         plugins: [tailwind, autoprefixer],
-  //       }),
-  //     ],
-  //   },
-  //   {
-  //     input: 'src/assets/style.css',
-  //     output: [
-  //       {
-  //         file: 'dist/style.css',
-  //       },
-  //     ],
-  //     external: [/\.(ts|tsx|js|jsx|json)$/],
-
-  //     plugins: [
-  //       postcss({
-  //         extract: 'style.css',
-  //         minimize: true,
-  //         plugins: [tailwind, autoprefixer],
-  //       }),
-  //     ],
-  //   },
 ]);
