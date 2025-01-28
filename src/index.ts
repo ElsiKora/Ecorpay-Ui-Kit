@@ -12,6 +12,8 @@ export { Skeleton, type SkeletonProps } from './shared/Skeleton/Skeleton';
 export { Switch, type SwitchProps } from './shared/Switch/Switch';
 export { Toast, type ToastProps } from './shared/Toast/Toast';
 export { Tooltip, type TooltipProps } from './shared/Tooltip/Tooltip';
+export { Accordion, type AccordionProps } from './shared/Accordion/Accordion';
+export { AccordionItem, type AccordionItemProps } from './shared/Accordion/AccordionItem';
 
 export { Slot, type SlotProps } from '@radix-ui/react-slot';
 

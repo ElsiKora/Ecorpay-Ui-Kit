@@ -1,0 +1,11 @@
+import { useContext } from 'react';
+import { AccordionContext } from '../lib/accordionContext';
+
+export const useAccordionContext = () => {
+  const accordionContext = useContext(AccordionContext);
+
+  if (accordionContext === undefined)
+    throw new Error('useAccordionContext must be used within a Accordion Provider');
+
+  return accordionContext;
+};
