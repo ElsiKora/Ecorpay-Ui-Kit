@@ -171,6 +171,24 @@ export default {
       },
 
       keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeOut: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+
+        scaleIn: {
+          from: { transform: 'scale(0.95) translate(-50%, -50%)', opacity: '0' },
+          to: { transform: 'scale(1) translate(-50%, -50%)', opacity: '1' },
+        },
+        scaleOut: {
+          from: { transform: 'scale(1) translate(-50%, -50%)', opacity: '1' },
+          to: { transform: 'scale(0.95) translate(-50%, -50%)', opacity: '0' },
+        },
+
         'accordion-down': {
           from: { height: '0' },
           to: { height: 'var(--radix-accordion-content-height)' },
@@ -181,6 +199,10 @@ export default {
         },
       },
       animation: {
+        fadeIn: 'fadeIn 0.3s ease-out forwards',
+        fadeOut: 'fadeOut 0.2s ease-in forwards',
+        scaleIn: 'scaleIn 0.3s ease-out forwards',
+        scaleOut: 'scaleOut 0.2s ease-in forwards',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
