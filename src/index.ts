@@ -18,6 +18,7 @@ export { Dialog, type DialogProps } from './shared/Dialog/Dialog';
 export { DialogContent, type DialogContentProps } from './shared/Dialog/DialogContent';
 export { DialogTrigger, type DialogTriggerProps } from './shared/Dialog/DialogTrigger';
 export { DialogClose, type DialogCloseProps } from './shared/Dialog/DialogClose';
+export { Boundary, type BoundaryProps } from './shared/Boundary/Boundary';
 
 export { Slot, type SlotProps } from '@radix-ui/react-slot';
 
