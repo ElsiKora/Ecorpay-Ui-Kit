@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 import { Close, type DialogCloseProps as CloseProps } from '@radix-ui/react-dialog';
 
-interface DialogCloseProps extends CloseProps {
+export interface DialogCloseProps extends CloseProps {
   className?: string;
   children: ReactNode;
 }

@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 import { Trigger, type DialogTriggerProps as TriggerProps } from '@radix-ui/react-dialog';
 
-interface DialogTriggerProps extends TriggerProps {
+export interface DialogTriggerProps extends TriggerProps {
   className?: string;
   children: ReactNode;
 }

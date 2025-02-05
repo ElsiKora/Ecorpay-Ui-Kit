@@ -12,7 +12,7 @@ import {
 import { DialogClose } from './DialogClose';
 import { cn } from '@/utils/cn';
 
-interface DialogContentProps extends ContentProps {
+export interface DialogContentProps extends ContentProps {
   className?: string;
   portalProps?: DialogPortalProps;
   overlayProps?: DialogOverlayProps;

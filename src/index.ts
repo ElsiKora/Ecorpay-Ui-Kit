@@ -14,6 +14,10 @@ export { Toast, type ToastProps } from './shared/Toast/Toast';
 export { Tooltip, type TooltipProps } from './shared/Tooltip/Tooltip';
 export { Accordion, type AccordionProps } from './shared/Accordion/Accordion';
 export { AccordionItem, type AccordionItemProps } from './shared/Accordion/AccordionItem';
+export { Dialog, type DialogProps } from './shared/Dialog/Dialog';
+export { DialogContent, type DialogContentProps } from './shared/Dialog/DialogContent';
+export { DialogTrigger, type DialogTriggerProps } from './shared/Dialog/DialogTrigger';
+export { DialogClose, type DialogCloseProps } from './shared/Dialog/DialogClose';
 
 export { Slot, type SlotProps } from '@radix-ui/react-slot';
 
