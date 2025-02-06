@@ -56,6 +56,10 @@ export default defineConfig([
         targets: [{ src: 'public/fonts', dest: 'dist' }],
       }),
     ],
+    onwarn: (warning, warn) => {
+      if (warning.message.includes('"use client"')) return;
+      else warn(warning);
+    },
     external: ['react', 'react-dom', 'react/jsx-runtime'],
   },
   {
