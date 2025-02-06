@@ -4,7 +4,6 @@
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "skipLibCheck": true,
 
     /* Bundler mode */
     "moduleResolution": "Bundler",
@@ -13,6 +12,8 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "declarationDir": "dist/types",
+    "skipLibCheck": true,
+    "stripInternal": true,
 
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

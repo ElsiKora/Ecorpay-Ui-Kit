@@ -41,6 +41,7 @@ export default defineConfig([
 
       resolve({
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.woff'],
+        preserveSymlinks: true,
       }),
 
       typescript({
@@ -77,12 +78,16 @@ export default defineConfig([
   {
     input: 'dist/types/src/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
-    external: [/\.(css|scss)$/],
+    external: [/\.(css|scss)$/, 'class-variance-authority/types'],
     plugins: [
-      //   dts({
-      //     tsconfig: './tsconfig.json',
-      //   }),
-      dts(),
+      dts({
+        compilerOptions: {
+          baseUrl: path.resolve('dist/types'),
+          paths: {
+            '@/*': ['src/*'],
+          },
+        },
+      }),
       del({ targets: 'dist/types', hook: 'buildEnd' }),
     ],
   },
