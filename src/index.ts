@@ -22,7 +22,5 @@ export { Boundary, type BoundaryProps } from './shared/Boundary/Boundary';
 
 export { Slot, type SlotProps } from '@radix-ui/react-slot';
 
-/* @internal */
 import tailwindConfig from '../tailwind.config';
-/* @internal */
 export { tailwindConfig };
