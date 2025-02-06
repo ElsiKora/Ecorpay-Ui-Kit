@@ -1,4 +1,6 @@
 import { defineConfig } from 'rollup';
+import path from 'path';
+
 import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss';
@@ -8,6 +10,8 @@ import terser from '@rollup/plugin-terser';
 import tailwind from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 import packageJson from './package.json' with { type: 'json' };
+import alias from '@rollup/plugin-alias';
+import svgr from '@svgr/rollup';
 import { dts } from 'rollup-plugin-dts';
 
 export default defineConfig([
@@ -25,9 +29,15 @@ export default defineConfig([
         plugins: [terser()],
       },
     ],
+
     plugins: [
-      //   del({ targets: 'dist', hook: 'buildStart' }),
-      del({ targets: 'dist' }),
+      del({ targets: 'dist', hook: 'buildStart' }),
+
+      svgr(),
+
+      alias({
+        entries: [{ find: '@', replacement: path.resolve('src') }],
+      }),
 
       resolve({
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.woff'],
@@ -56,10 +66,12 @@ export default defineConfig([
         targets: [{ src: 'public/fonts', dest: 'dist' }],
       }),
     ],
+
     onwarn: (warning, warn) => {
       if (warning.message.includes('"use client"')) return;
       else warn(warning);
     },
+
     external: ['react', 'react-dom', 'react/jsx-runtime'],
   },
   {
