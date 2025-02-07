@@ -165,7 +165,8 @@ const tailwindConfig: Config = {
       },
 
       screens: {
-        mob: '320px',
+        mob: '0px',
+        mobLarge: '425px',
         tablet: '768px',
         pc: '1024px',
       },
