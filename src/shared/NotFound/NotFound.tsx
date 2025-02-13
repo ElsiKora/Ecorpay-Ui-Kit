@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 import NotFoundIcon from '@/icons/404.svg';
 import { cn } from '@/utils/cn';
 
-interface NotFoundProps {
+export interface NotFoundProps {
   className?: string;
   title: string;
   description?: string;

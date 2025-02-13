@@ -2,7 +2,7 @@ import { cn } from '@/utils/cn';
 import { FC, ReactNode } from 'react';
 import TechWorkIcon from '@/icons/techWwork.svg';
 
-interface TechWorkProps {
+export interface TechWorkProps {
   title: string;
 
   description?: string;
