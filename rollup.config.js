@@ -33,7 +33,7 @@ export default defineConfig([
     plugins: [
       del({ targets: 'dist', hook: 'buildStart' }),
 
-      svgr(),
+      svgr({ icon: true }),
 
       alias({
         entries: [{ find: '@', replacement: path.resolve('src') }],
