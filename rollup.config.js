@@ -63,6 +63,13 @@ export default defineConfig([
         plugins: [tailwind, autoprefixer],
       }),
 
+      postcss({
+        include: 'src/assets/tailwind.css',
+        extract: 'tailwind.css',
+        minimize: true,
+        plugins: [tailwind, autoprefixer],
+      }),
+
       copy({
         targets: [{ src: 'public/fonts', dest: 'dist' }],
       }),

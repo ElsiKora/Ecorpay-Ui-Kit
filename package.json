@@ -13,7 +13,8 @@
       "require": "./dist/index.cjs.js"
     },
     "./style.css": "./dist/style.css",
-    "./fonts.css": "./dist/fonts.css"
+    "./fonts.css": "./dist/fonts.css",
+    "./tailwind.css": "./dist/tailwind.css"
   },
   "files": [
     "dist"

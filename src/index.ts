@@ -1,5 +1,6 @@
 import './assets/fonts.css';
 import './assets/style.css';
+import './assets/tailwind.css';
 
 export { Accordion, type AccordionProps } from './shared/Accordion/Accordion';
 export { AccordionItem, type AccordionItemProps } from './shared/Accordion/AccordionItem';
