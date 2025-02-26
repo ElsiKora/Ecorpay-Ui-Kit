@@ -68,7 +68,10 @@ export const Button: FC<ButtonProps> = (props) => {
   const Comp = asChild ? Slot : 'button';
 
   return (
-    <Comp className={cn(buttonVariants({ variant }), className)} {...otherProps}>
+    <Comp
+      className={cn(buttonVariants({ variant }), className, { relative: loading })}
+      {...otherProps}
+    >
       {loading ? (
         <>
           <span className="opacity-0">{children}</span>
