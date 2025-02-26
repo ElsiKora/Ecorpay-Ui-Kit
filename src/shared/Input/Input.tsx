@@ -42,7 +42,9 @@ export const Input: FC<InputProps> = (props) => {
       )}
     >
       {/* Label text */}
-      <span className="mob:text-xxs tablet:text-sm text-black-300 font-medium">{label}</span>
+      {label ? (
+        <span className="mob:text-xxs tablet:text-sm text-black-300 font-medium">{label}</span>
+      ) : null}
 
       {/* Inpfur field container */}
       <div className="flex gap-[5px] mob:text-xs tablet:text-base">
