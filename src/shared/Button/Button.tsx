@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
 import { Slot } from '@radix-ui/react-slot';
+import IconLoader from '@/icons/loader.svg';
 
 const buttonVariants = cva(
   'disabled:bg-black-100 disabled:text-black-300 transition-all font-medium',
@@ -62,9 +63,20 @@ export interface ButtonProps
 }
 
 export const Button: FC<ButtonProps> = (props) => {
-  const { variant, className, asChild, ...otherProps } = props;
+  const { variant, className, asChild, loading, children, ...otherProps } = props;
 
   const Comp = asChild ? Slot : 'button';
 
-  return <Comp className={cn(buttonVariants({ variant }), className)} {...otherProps}></Comp>;
+  return (
+    <Comp className={cn(buttonVariants({ variant }), className)} {...otherProps}>
+      {loading ? (
+        <>
+          <span className="opacity-0">{children}</span>
+          <IconLoader className="w-20px h-20px absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+        </>
+      ) : (
+        children
+      )}
+    </Comp>
+  );
 };

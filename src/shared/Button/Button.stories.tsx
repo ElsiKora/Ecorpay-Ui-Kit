@@ -32,6 +32,14 @@ export const Primary: Story = {
   },
 };
 
+export const Loading: Story = {
+  args: {
+    variant: 'primary-l',
+    loading: true,
+    children: 'Example',
+  },
+};
+
 export const Secondary: Story = {
   render: (args) => {
     return (
