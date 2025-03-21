@@ -1,6 +1,6 @@
 import { ScrollArea } from '../../ScrollArea/ScrollArea';
 import * as SelectBase from '@radix-ui/react-select';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import ShevronIcon from '@/icons/shevron.svg';
 import { LangItem } from '../model/language.type';
 import { FlagIcon } from './FlagIcon';
@@ -28,14 +28,32 @@ export interface LanguageSelectProps extends VariantProps<typeof languageSelectV
 }
 
 export const LanguageSelect: FC<LanguageSelectProps> = (props) => {
-  const { langList, rootProps, variant, triggerClassName, contentClassName } = props;
+  const { langList, rootProps = {}, variant, triggerClassName, contentClassName } = props;
+  const { open, onOpenChange, ...otherRootProps } = rootProps;
+
+  const [isOpen, setIsOpen] = useState(open || false);
+  const [isAnimate, setIsAnimate] = useState(open || false);
+
+  const openChangeHandler = (state: boolean) => {
+    setIsAnimate(state);
+
+    if (state) {
+      setIsOpen(state);
+      onOpenChange?.(state);
+    } else {
+      setTimeout(() => {
+        setIsOpen(state);
+        onOpenChange?.(state);
+      }, 130);
+    }
+  };
 
   return (
-    <SelectBase.Root {...rootProps}>
+    <SelectBase.Root open={isOpen} onOpenChange={openChangeHandler} {...otherRootProps}>
       <SelectBase.Trigger
         className={cn(
           languageSelectVariants({ variant }),
-          'relative z-40 data-[state=open]:border-transparent group font-medium flex items-center transition-colors outline-none hover:border-accent',
+          'group font-medium flex items-center data-[state=closed]:transition-colors outline-none hover:border-accent data-[state=open]:rounded-ee-none data-[state=open]:rounded-es-none data-[state=open]:border-b-0',
           { 'max-h-45px': variant === 'rounded', 'max-h-52px': variant === 'square' },
           triggerClassName
         )}
@@ -52,12 +70,11 @@ export const LanguageSelect: FC<LanguageSelectProps> = (props) => {
         <SelectBase.Content
           className={cn(
             languageSelectVariants({ variant }),
-            'z-30 min-w-88px bg-white shadow-langSelect',
+            'min-w-88px bg-white shadow-langSelect rounded-se-none rounded-ss-none border-t-transparent',
             {
-              '-translate-y-47px pt-47px pb-20px': variant === 'rounded',
-              '-translate-y-52px pt-52px pb-10px': variant === 'square',
+              'animate-language-open': isAnimate,
+              'animate-language-close': !isAnimate,
             },
-
             contentClassName
           )}
           side="bottom"
@@ -66,7 +83,7 @@ export const LanguageSelect: FC<LanguageSelectProps> = (props) => {
           avoidCollisions
         >
           <SelectBase.Viewport className="SelectBaseViewport">
-            <ScrollArea className="flex max-h-[155px] pr-10px">
+            <ScrollArea className="flex max-h-[160px] pr-10px">
               {langList.map(({ label, code }, key) => (
                 <LanguageItem
                   className="
@@ -82,10 +99,10 @@ export const LanguageSelect: FC<LanguageSelectProps> = (props) => {
 						last-of-type:mb-0
 						
 						p-6px
-						rounded-[0.9375rem]
 						outline-none
 						border-2
 						border-transparent
+						rounded-[0.625rem]
 						
 						transition-colors
 						

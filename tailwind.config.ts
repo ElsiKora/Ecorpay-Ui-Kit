@@ -198,6 +198,11 @@ const tailwindConfig: Config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        'language-open': {
+          '0%': { height: '0' },
+          '100%': { height: '160px' },
+        },
+        'language-close': { '0%': { height: '160px' }, '100%': { height: '0' } },
       },
       animation: {
         fadeIn: 'fadeIn 0.3s ease-out forwards',
@@ -206,6 +211,8 @@ const tailwindConfig: Config = {
         scaleOut: 'scaleOut 0.2s ease-in forwards',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'language-open': 'language-open 0.15s ease-in-out',
+        'language-close': 'language-close 0.15s ease-in-out',
       },
     },
   },
