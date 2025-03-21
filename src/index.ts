@@ -15,6 +15,7 @@ export { DialogContent, type DialogContentProps } from './shared/Dialog/DialogCo
 export { DialogTrigger, type DialogTriggerProps } from './shared/Dialog/DialogTrigger';
 export { DialogClose, type DialogCloseProps } from './shared/Dialog/DialogClose';
 export { Input, type InputProps } from './shared/Input/Input';
+export { LanguageSelect, type LangItem } from './shared/LanguageSelect';
 export { NotFound, type NotFoundProps } from './shared/NotFound/NotFound';
 export { Radio, type RadioProps } from './shared/Radio/Radio';
 export { ScrollArea, type ScrollAreaProps } from './shared/ScrollArea/ScrollArea';
