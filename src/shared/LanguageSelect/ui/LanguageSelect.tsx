@@ -37,14 +37,12 @@ export const LanguageSelect: FC<LanguageSelectProps> = (props) => {
   const openChangeHandler = (state: boolean) => {
     setIsAnimate(state);
 
-    if (state) {
-      setIsOpen(state);
-      onOpenChange?.(state);
+    if (onOpenChange) {
+      if (state) onOpenChange(state);
+      else setTimeout(() => onOpenChange(state), 130);
     } else {
-      setTimeout(() => {
-        setIsOpen(state);
-        onOpenChange?.(state);
-      }, 130);
+      if (state) setIsOpen(state);
+      else setTimeout(() => setIsOpen(state), 130);
     }
   };
 
@@ -69,11 +67,12 @@ export const LanguageSelect: FC<LanguageSelectProps> = (props) => {
       <SelectBase.Portal>
         <SelectBase.Content
           className={cn(
-            languageSelectVariants({ variant }),
-            'min-w-88px bg-white shadow-langSelect rounded-se-none rounded-ss-none border-t-transparent',
+            'z-30 min-w-88px bg-white shadow-langSelect rounded-se-none rounded-ss-none border-l-2 border-r-2 border-b-2 border-black-100 text-sm',
             {
               'animate-language-open': isAnimate,
               'animate-language-close': !isAnimate,
+              'rounded-es-[1.875rem] rounded-ee-[1.875rem] w-[108px] p-7px': variant === 'rounded',
+              'rounded-es-[0.625rem] rounded-ee-[0.625rem] w-[115px] p-8px': variant === 'square',
             },
             contentClassName
           )}
