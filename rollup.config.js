@@ -71,7 +71,17 @@ export default defineConfig([
       }),
 
       copy({
-        targets: [{ src: 'public/fonts', dest: 'dist' }],
+        targets: [
+          { src: 'public/fonts', dest: 'dist' },
+          {
+            src: ['public/icons', '!public/icons/_temp_flags_/**/*'],
+            dest: 'dist',
+            expandDirectories: true,
+            onlyFiles: true,
+          },
+        ],
+        flatten: false,
+        hook: 'writeBundle',
       }),
     ],
 
