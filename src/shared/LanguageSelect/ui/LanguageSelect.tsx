@@ -7,6 +7,7 @@ import { FlagIcon } from './FlagIcon';
 import { LanguageItem } from './LanguageItem';
 import { cva, VariantProps } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
+import { filterLanguageList } from '../helper/filterLanguageList';
 
 const languageSelectVariants = cva('border-2 border-black-100 text-sm', {
   variants: {
@@ -83,9 +84,10 @@ export const LanguageSelect: FC<LanguageSelectProps> = (props) => {
         >
           <SelectBase.Viewport className="SelectBaseViewport">
             <ScrollArea className="flex max-h-[160px] pr-10px">
-              {langList.map(({ label, code }, key) => (
-                <LanguageItem
-                  className="
+              {filterLanguageList(langList, rootProps.value || rootProps.defaultValue || '').map(
+                ({ label, code }, key) => (
+                  <LanguageItem
+                    className="
 						flex 
 						items-center 
 						gap-5px 
@@ -111,12 +113,13 @@ export const LanguageSelect: FC<LanguageSelectProps> = (props) => {
 						data-[state=checked]:bg-accent-100
 						data-[state=checked]:cursor-default
 					"
-                  value={code}
-                  key={code + key}
-                >
-                  {label}
-                </LanguageItem>
-              ))}
+                    value={code}
+                    key={code + key}
+                  >
+                    {label}
+                  </LanguageItem>
+                )
+              )}
             </ScrollArea>
           </SelectBase.Viewport>
         </SelectBase.Content>
