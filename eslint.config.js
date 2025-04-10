@@ -49,7 +49,7 @@ const config = {
 export default [
  config,
  ...(await createConfig({
-  withCss: true,
+  withCss: false,
   withJavascript: true,
   withJson: true,
   withJsx: true,
@@ -84,6 +84,7 @@ export default [
    "@elsikora/jsx/no-autofocus": "off", // Запрещает автофокус на инпутах,
    "@elsikora/react/1/naming-convention/filename": "off", // Некорректные правила неймингов,
    "@elsikora/react/1/naming-convention/filename-extension": "off", // Заствялет указывать расширения файлов при импорте
+   "@elsikora/react/1/no-context-provider": "off", // Форматирует Context.Provider в Context. Не собирается билд
    "@elsikora/react/2/jsx-curly-brace-presence": "off", // Заставляет оборачивать все строки в {}
    //    ["error", { children: "never", props: "never" }],
    "@elsikora/react/2/require-default-props": "off",

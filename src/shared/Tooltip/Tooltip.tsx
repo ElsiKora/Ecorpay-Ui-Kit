@@ -30,7 +30,7 @@ export const Tooltip: FC<TooltipProperties> = (properties) => {
  } = properties;
 
  return (
-  <TooltipBase>
+  <TooltipBase.Provider>
    <TooltipBase.Root delayDuration={rootProps?.delayDuration ?? 400} {...rootProps}>
     <TooltipBase.Trigger asChild className={triggerClassName}>
      <button type="button">
@@ -51,6 +51,6 @@ export const Tooltip: FC<TooltipProperties> = (properties) => {
      </TooltipBase.Content>
     </TooltipBase.Portal>
    </TooltipBase.Root>
-  </TooltipBase>
+  </TooltipBase.Provider>
  );
 };
