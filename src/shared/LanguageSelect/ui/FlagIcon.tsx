@@ -1,28 +1,29 @@
-import { cn } from '@/utils/cn';
-import { FC } from 'react';
+import type { FC } from "react";
 
-interface FlagIconProps {
-  code: string;
-  className?: string;
+import { cn } from "@/utils/cn";
+
+interface FlagIconProperties {
+ className?: string;
+ code: string;
 }
 
 const BASE_URL =
-  process.env.NODE_ENV === 'development' ? '' : 'node_modules/@elsikora/ecorpay-ui-kit/dist';
+ process.env.NODE_ENV === "development" ? "" : "node_modules/@elsikora/ecorpay-ui-kit/dist";
 
-export const FlagIcon: FC<FlagIconProps> = ({ code, className }) => {
-  const flagSrc = `${BASE_URL}/icons/flags/${code.toLowerCase()}.svg`;
-  const fallback = `${BASE_URL}/icons/flags/fallback.svg`;
+export const FlagIcon: FC<FlagIconProperties> = ({ className, code }) => {
+ const flagSource = `${BASE_URL}/icons/flags/${code.toLowerCase()}.svg`;
+ const fallback = `${BASE_URL}/icons/flags/fallback.svg`;
 
-  return (
-    <img
-      className={cn('w-20px h-20px shrink-0 border-2 border-black-100 rounded-md', className)}
-      alt={`${code} flag`}
-      src={flagSrc}
-      width={22}
-      height={22}
-      onError={(e) => {
-        e.currentTarget.src = fallback;
-      }}
-    />
-  );
+ return (
+  <img
+   alt={`${code} flag`}
+   className={cn("w-20px h-20px shrink-0 border-2 border-black-100 rounded-md", className)}
+   height={22}
+   onError={(event) => {
+    event.currentTarget.src = fallback;
+   }}
+   src={flagSource}
+   width={22}
+  />
+ );
 };

@@ -1,13 +1,15 @@
-import { createContext } from 'react';
-import { VariantProps } from 'class-variance-authority';
-import { accordionVariants } from '../Accordion';
+import type { VariantProps } from "class-variance-authority";
 
-export interface AccordionContextProps {
-  variant: VariantProps<typeof accordionVariants>['variant'];
+import type { accordionVariants } from "../Accordion";
+
+import { createContext } from "react";
+
+export interface AccordionContextProperties {
+ variant: VariantProps<typeof accordionVariants>["variant"];
 }
 
-const initialState: AccordionContextProps = {
-  variant: 'clear',
+const initialState: AccordionContextProperties = {
+ variant: "clear",
 };
 
-export const AccordionContext = createContext<AccordionContextProps>(initialState);
+export const AccordionContext = createContext<AccordionContextProperties>(initialState);

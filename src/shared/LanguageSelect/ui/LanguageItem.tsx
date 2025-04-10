@@ -1,20 +1,23 @@
-import { Item, ItemText, SelectItemProps } from '@radix-ui/react-select';
-import { FC, RefObject } from 'react';
-import { FlagIcon } from './FlagIcon';
-import { cn } from '@/utils/cn';
+import type { SelectItemProps } from "@radix-ui/react-select";
+import type { FC, RefObject } from "react";
 
-interface LanguageItemProps extends SelectItemProps {
-  flagIconClassName?: string;
-  ref?: RefObject<HTMLDivElement | null>;
+import { cn } from "@/utils/cn";
+import { Item, ItemText } from "@radix-ui/react-select";
+
+import { FlagIcon } from "./FlagIcon";
+
+interface LanguageItemProperties extends SelectItemProps {
+ flagIconClassName?: string;
+ ref?: RefObject<HTMLDivElement | null>;
 }
 
-export const LanguageItem: FC<LanguageItemProps> = (props) => {
-  const { className, ref, children, flagIconClassName, value, ...otherProps } = props;
+export const LanguageItem: FC<LanguageItemProperties> = (properties) => {
+ const { children, className, flagIconClassName, ref, value, ...otherProperties } = properties;
 
-  return (
-    <Item className={cn(className)} ref={ref} value={value} {...otherProps}>
-      <FlagIcon className={flagIconClassName} code={value} />
-      <ItemText>{children}</ItemText>
-    </Item>
-  );
+ return (
+  <Item className={cn(className)} ref={ref} value={value} {...otherProperties}>
+   <FlagIcon className={flagIconClassName} code={value} />
+   <ItemText>{children}</ItemText>
+  </Item>
+ );
 };

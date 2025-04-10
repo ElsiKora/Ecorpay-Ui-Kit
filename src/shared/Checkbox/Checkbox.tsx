@@ -1,58 +1,57 @@
-import { FC, InputHTMLAttributes } from 'react';
-import CheckedIcon from '@/icons/checkboxChecked.svg';
-import UncheckedIcon from '@/icons/checkboxUnchecked.svg';
-import { cn } from '@/utils/cn';
+import type { FC, InputHTMLAttributes } from "react";
 
-export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
-  label?: string;
+import CheckedIcon from "@/icons/checkboxChecked.svg";
+import UncheckedIcon from "@/icons/checkboxUnchecked.svg";
+import { cn } from "@/utils/cn";
+
+export interface CheckboxProperties extends Omit<InputHTMLAttributes<HTMLInputElement>, "type"> {
+ label?: string;
 }
 
-export const Checkbox: FC<CheckboxProps> = (props) => {
-  const { label, disabled, ...otherProps } = props;
+export const Checkbox: FC<CheckboxProperties> = (properties) => {
+ const { disabled, label, ...otherProperties } = properties;
 
-  return (
-    <label
-      className={cn('relative flex items-center gap-7px font-normal text-black text-sm', {
-        'cursor-default': disabled,
-        'cursor-pointer': !disabled,
-      })}
-    >
-      <input
-        className="peer opacity-0 w-4 h-4"
-        type="checkbox"
-        disabled={disabled}
-        {...otherProps}
-      />
+ return (
+  <label
+   className={cn("relative flex items-center gap-7px font-normal text-black text-sm", {
+    "cursor-default": disabled,
+    "cursor-pointer": !disabled,
+   })}>
+   <input
+    className="peer size-4 opacity-0"
+    disabled={disabled}
+    type="checkbox"
+    {...otherProperties}
+   />
 
-      <CheckedIcon
-        className={cn(
-          ' outline-1 outline-accent absolute left-0 opacity-0 peer-checked:opacity-100 peer-focus-visible:outline transition-opacity',
-          {
-            'text-black-300': disabled,
-            'text-accent': !disabled,
-          }
-        )}
-      />
-      <UncheckedIcon
-        className={cn(
-          'outline-1 outline-accent absolute left-0 opacity-100 peer-checked:opacity-0 peer-focus-visible:outline transition-opacity',
-          {
-            'text-black-300': disabled,
-            'text-accent': !disabled,
-          }
-        )}
-      />
+   <CheckedIcon
+    className={cn(
+     " outline-1 outline-accent absolute left-0 opacity-0 peer-checked:opacity-100 peer-focus-visible:outline transition-opacity",
+     {
+      "text-accent": !disabled,
+      "text-black-300": disabled,
+     },
+    )}
+   />
+   <UncheckedIcon
+    className={cn(
+     "outline-1 outline-accent absolute left-0 opacity-100 peer-checked:opacity-0 peer-focus-visible:outline transition-opacity",
+     {
+      "text-accent": !disabled,
+      "text-black-300": disabled,
+     },
+    )}
+   />
 
-      {label ? (
-        <span
-          className={cn({
-            'text-black-300': disabled,
-            'text-black': !disabled,
-          })}
-        >
-          {label}
-        </span>
-      ) : null}
-    </label>
-  );
+   {label ? (
+    <span
+     className={cn({
+      "text-black": !disabled,
+      "text-black-300": disabled,
+     })}>
+     {label}
+    </span>
+   ) : null}
+  </label>
+ );
 };

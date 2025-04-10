@@ -1,30 +1,45 @@
-import { FC } from 'react';
+import type { VariantProps } from "class-variance-authority";
 
-import * as AccordionBase from '@radix-ui/react-accordion';
-import { cva, VariantProps } from 'class-variance-authority';
-import { AccordionContext } from './lib/accordionContext';
+import type { AccordionContextProperties } from "./lib/accordionContext";
 
-export const accordionVariants = cva('', {
-  variants: {
-    variant: {
-      clear: '',
-      outline: '',
-      filled: '',
-    },
+import * as AccordionBase from "@radix-ui/react-accordion";
+import { cva } from "class-variance-authority";
+import { type FC, useMemo } from "react";
+
+import { AccordionContext } from "./lib/accordionContext";
+
+export const accordionVariants = cva("", {
+ defaultVariants: {
+  variant: "filled",
+ },
+ variants: {
+  variant: {
+   clear: "",
+   filled: "",
+   outline: "",
   },
-  defaultVariants: {
-    variant: 'filled',
-  },
+ },
 });
 
-export type AccordionProps = VariantProps<typeof accordionVariants> &
-  (AccordionBase.AccordionSingleProps | AccordionBase.AccordionMultipleProps);
+export type AccordionProperties = (
+ | AccordionBase.AccordionMultipleProps
+ | AccordionBase.AccordionSingleProps
+) &
+ VariantProps<typeof accordionVariants>;
 
-export const Accordion: FC<AccordionProps> = (props) => {
-  const { variant = 'filled', children, ...otherProps } = props;
-  return (
-    <AccordionContext value={{ variant }}>
-      <AccordionBase.Root {...otherProps}>{children}</AccordionBase.Root>
-    </AccordionContext>
-  );
+export const Accordion: FC<AccordionProperties> = (properties) => {
+ const { children, variant = "filled", ...otherProperties } = properties;
+
+ const memoVariants = useMemo<AccordionContextProperties>(
+  () => ({
+   variant,
+  }),
+  [variant],
+ );
+
+ return (
+  <AccordionContext value={memoVariants}>
+   <AccordionBase.Root {...otherProperties}>{children}</AccordionBase.Root>
+  </AccordionContext>
+ );
 };

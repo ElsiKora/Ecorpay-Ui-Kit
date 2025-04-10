@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Switch } from './Switch';
+import { Switch } from "./Switch";
 
 const meta: Meta<typeof Switch> = {
-  title: 'Shared/Switch',
-  component: Switch,
-  parameters: {},
-  args: { disabled: false },
+ args: { disabled: false },
+ component: Switch,
+ parameters: {},
+ title: "Shared/Switch",
 };
 
 export default meta;
@@ -14,30 +14,30 @@ export default meta;
 type Story = StoryObj<typeof Switch>;
 
 export const DefaultOn: Story = {
-  args: {
-    children: 'Some text',
-    className: 'testClass',
-    checked: true,
-  },
+ args: {
+  checked: true,
+  children: "Some text",
+  className: "testClass",
+ },
 };
 
 export const DefaultOff: Story = {
-  args: {
-    children: 'Some text',
-    checked: false,
-  },
+ args: {
+  checked: false,
+  children: "Some text",
+ },
 };
 
 export const Disabled: Story = {
-  args: {
-    children: 'Some text',
-    checked: false,
-    disabled: true,
-  },
+ args: {
+  checked: false,
+  children: "Some text",
+  disabled: true,
+ },
 };
 
 export const WithoutChildren: Story = {
-  args: {
-    className: 'testClass',
-  },
+ args: {
+  className: "testClass",
+ },
 };

@@ -1,59 +1,59 @@
-import CloseIcon from '@/icons/close.svg';
+import type { FC, ReactNode } from "react";
 
-import { FC, ReactNode } from 'react';
+import CloseIcon from "@/icons/close.svg";
+import { cn } from "@/utils/cn";
 import {
-  Portal,
-  Overlay,
-  Content,
-  type DialogOverlayProps,
-  type DialogPortalProps,
-  type DialogContentProps as ContentProps,
-} from '@radix-ui/react-dialog';
-import { DialogClose } from './DialogClose';
-import { cn } from '@/utils/cn';
+ Content,
+ type DialogContentProps as ContentProperties,
+ type DialogOverlayProps,
+ type DialogPortalProps,
+ Overlay,
+ Portal,
+} from "@radix-ui/react-dialog";
 
-export interface DialogContentProps extends ContentProps {
-  className?: string;
-  portalProps?: DialogPortalProps;
-  overlayProps?: DialogOverlayProps;
-  withCloseIcon?: boolean;
+import { DialogClose } from "./DialogClose";
 
-  children: ReactNode;
+export interface DialogContentProperties extends ContentProperties {
+ children: ReactNode;
+ className?: string;
+ overlayProps?: DialogOverlayProps;
+ portalProps?: DialogPortalProps;
+
+ withCloseIcon?: boolean;
 }
 
-export const DialogContent: FC<DialogContentProps> = (props) => {
-  const {
-    children,
-    className,
-    withCloseIcon = true,
-    portalProps,
-    overlayProps,
-    ...otherProps
-  } = props;
+export const DialogContent: FC<DialogContentProperties> = (properties) => {
+ const {
+  children,
+  className,
+  overlayProps,
+  portalProps,
+  withCloseIcon = true,
+  ...otherProperties
+ } = properties;
 
-  return (
-    <Portal {...portalProps}>
-      <Overlay
-        className="fixed inset-0 bg-[rgba(0,0,0,0.50)] data-[state=closed]:animate-fadeOut data-[state=open]:animate-fadeIn"
-        {...overlayProps}
-      />
-      <Content
-        className={cn(
-          'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white mob:p-15px tablet:p-30px mob:rounded-2xl tablet:rounded-[1.25rem] transform-gpu data-[state=closed]:animate-scaleOut data-[state=open]:animate-scaleIn will-change-transform origin-top-left',
-          className
-        )}
-        {...otherProps}
-      >
-        {withCloseIcon ? (
-          <DialogClose className="absolute mob:right-[10px] mob:top-[10px] tablet:right-5 tablet:top-5">
-            <button>
-              <CloseIcon />
-            </button>
-          </DialogClose>
-        ) : null}
+ return (
+  <Portal {...portalProps}>
+   <Overlay
+    className="fixed inset-0 bg-[rgba(0,0,0,0.50)] data-[state=closed]:animate-fadeOut data-[state=open]:animate-fadeIn"
+    {...overlayProps}
+   />
+   <Content
+    className={cn(
+     "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white mob:p-15px tablet:p-30px mob:rounded-2xl tablet:rounded-[1.25rem] transform-gpu data-[state=closed]:animate-scaleOut data-[state=open]:animate-scaleIn will-change-transform origin-top-left",
+     className,
+    )}
+    {...otherProperties}>
+    {withCloseIcon ? (
+     <DialogClose className="absolute mob:right-[10px] mob:top-[10px] tablet:right-5 tablet:top-5">
+      <button type="button">
+       <CloseIcon />
+      </button>
+     </DialogClose>
+    ) : null}
 
-        {children}
-      </Content>
-    </Portal>
-  );
+    {children}
+   </Content>
+  </Portal>
+ );
 };

@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { CopyButton } from './CopyButton';
+import { CopyButton } from "./CopyButton";
 
 const meta: Meta<typeof CopyButton> = {
-  title: 'Shared/CopyButton',
-  component: CopyButton,
-  parameters: {
-    layout: 'centered',
-  },
-  args: {
-    // disabled: false,
-  },
+ args: {
+  // disabled: false,
+ },
+ component: CopyButton,
+ parameters: {
+  layout: "centered",
+ },
+ title: "Shared/CopyButton",
 };
 
 export default meta;
@@ -18,16 +18,16 @@ export default meta;
 type Story = StoryObj<typeof CopyButton>;
 
 export const Default: Story = {
-  args: {
-    children: 'Copy text',
-    valueToCopy: 'Copy text',
-  },
+ args: {
+  children: "Copy text",
+  valueToCopy: "Copy text",
+ },
 };
 
 export const Disabled: Story = {
-  args: {
-    children: 'Copy text',
-    valueToCopy: 'Copy text',
-    disabled: true,
-  },
+ args: {
+  children: "Copy text",
+  disabled: true,
+  valueToCopy: "Copy text",
+ },
 };
