@@ -1,61 +1,60 @@
-import { FC, ReactNode } from 'react';
-import * as ScrollAreaBase from '@radix-ui/react-scroll-area';
-import { cn } from '@/utils/cn';
+import type { FC, ReactNode } from "react";
 
-export interface ScrollAreaProps extends ScrollAreaBase.ScrollAreaProps {
-  children: ReactNode;
+import { cn } from "@/utils/cn";
+import * as ScrollAreaBase from "@radix-ui/react-scroll-area";
 
-  scrollViewportProps?: Omit<ScrollAreaBase.ScrollAreaViewportProps, 'className'>;
-  scrollThumbProps?: Omit<ScrollAreaBase.ScrollAreaThumbProps, 'className'>;
-  scrollbarProps?: Omit<ScrollAreaBase.ScrollAreaScrollbarProps, 'className'>;
+export interface ScrollAreaProperties extends ScrollAreaBase.ScrollAreaProps {
+ children: ReactNode;
 
-  scrollViewportClassName?: string;
-  scrollThumbClassName?: string;
-  scrollbarClassName?: string;
+ scrollbarClassName?: string;
+ scrollbarProps?: Omit<ScrollAreaBase.ScrollAreaScrollbarProps, "className">;
+ scrollThumbClassName?: string;
+
+ scrollThumbProps?: Omit<ScrollAreaBase.ScrollAreaThumbProps, "className">;
+ scrollViewportClassName?: string;
+ scrollViewportProps?: Omit<ScrollAreaBase.ScrollAreaViewportProps, "className">;
 }
 
-export const ScrollArea: FC<ScrollAreaProps> = (props) => {
-  const {
-    children,
+export const ScrollArea: FC<ScrollAreaProperties> = (properties) => {
+ const {
+  children,
+  className,
+  scrollbarClassName,
+
+  scrollbarProps,
+  scrollThumbClassName,
+  scrollThumbProps,
+
+  scrollViewportClassName,
+  scrollViewportProps,
+  type = "auto",
+
+  ...otherProperties
+ } = properties;
+
+ return (
+  <ScrollAreaBase.Root
+   className={cn(
+    "scrollRoot flex",
+    {
+     "flex-col": scrollbarProps?.orientation !== "horizontal",
+    },
     className,
-    type = 'auto',
+   )}
+   type={type}
+   {...otherProperties}>
+   <ScrollAreaBase.Viewport
+    {...scrollViewportProps}
+    className={cn("scrollViewport", scrollViewportClassName)}>
+    {children}
+   </ScrollAreaBase.Viewport>
 
-    scrollViewportProps,
-    scrollThumbProps,
-    scrollbarProps,
-
-    scrollViewportClassName,
-    scrollThumbClassName,
-    scrollbarClassName,
-
-    ...otherProps
-  } = props;
-
-  return (
-    <ScrollAreaBase.Root
-      className={cn(
-        'scrollRoot flex',
-        {
-          'flex-col': scrollbarProps?.orientation !== 'horizontal',
-        },
-        className
-      )}
-      type={type}
-      {...otherProps}
-    >
-      <ScrollAreaBase.Viewport
-        {...scrollViewportProps}
-        className={cn('scrollViewport', scrollViewportClassName)}
-      >
-        {children}
-      </ScrollAreaBase.Viewport>
-
-      <ScrollAreaBase.Scrollbar {...scrollbarProps} className={cn('scrollbar', scrollbarClassName)}>
-        <ScrollAreaBase.Thumb
-          {...scrollThumbProps}
-          className={cn('scrollThumb', scrollThumbClassName)}
-        />
-      </ScrollAreaBase.Scrollbar>
-    </ScrollAreaBase.Root>
-  );
+   <ScrollAreaBase.Scrollbar {...scrollbarProps} className={cn("scrollbar", scrollbarClassName)}>
+    <ScrollAreaBase.Thumb
+     {...scrollThumbProps}
+     className={cn("scrollThumb", scrollThumbClassName)}
+    />
+   </ScrollAreaBase.Scrollbar>
+  </ScrollAreaBase.Root>
+ );
 };

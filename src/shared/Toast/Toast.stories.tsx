@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Toast } from './Toast';
+import { Toast } from "./Toast";
 
 const meta: Meta<typeof Toast> = {
-  title: 'Shared/Toast',
-  component: Toast,
-  parameters: {
-    // layout: 'centered',
-  },
+ component: Toast,
+ parameters: {
+  // layout: 'centered',
+ },
+ title: "Shared/Toast",
 };
 
 export default meta;
@@ -15,24 +15,24 @@ export default meta;
 type Story = StoryObj<typeof Toast>;
 
 export const Default: Story = {
-  args: {
-    description:
-      'Оператор Сервиса принимает необходимые и достаточные организационные и технические меры.',
-  },
+ args: {
+  description:
+   "Оператор Сервиса принимает необходимые и достаточные организационные и технические меры.",
+ },
 };
 
 export const Warning: Story = {
-  args: {
-    variant: 'warn',
-    description:
-      'Оператор Сервиса принимает необходимые и достаточные организационные и технические меры для защиты персональной информации Пользователя.',
-  },
+ args: {
+  description:
+   "Оператор Сервиса принимает необходимые и достаточные организационные и технические меры для защиты персональной информации Пользователя.",
+  variant: "warn",
+ },
 };
 
 export const Danger: Story = {
-  args: {
-    variant: 'danger',
-    description:
-      'Оператор Сервиса принимает необходимые и достаточные организационные и технические меры для защиты персональной информации Пользователя.',
-  },
+ args: {
+  description:
+   "Оператор Сервиса принимает необходимые и достаточные организационные и технические меры для защиты персональной информации Пользователя.",
+  variant: "danger",
+ },
 };

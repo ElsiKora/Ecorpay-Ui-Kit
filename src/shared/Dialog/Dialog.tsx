@@ -1,12 +1,13 @@
-import { Root, type DialogProps as DialogRootProps } from '@radix-ui/react-dialog';
-import { FC, ReactNode } from 'react';
+import type { FC, ReactNode } from "react";
 
-export interface DialogProps extends DialogRootProps {
-  children: ReactNode;
+import { type DialogProps as DialogRootProperties, Root } from "@radix-ui/react-dialog";
+
+export interface DialogProperties extends DialogRootProperties {
+ children: ReactNode;
 }
 
-export const Dialog: FC<DialogProps> = (props) => {
-  const { children, ...otherProps } = props;
+export const Dialog: FC<DialogProperties> = (properties) => {
+ const { children, ...otherProperties } = properties;
 
-  return <Root {...otherProps}>{children}</Root>;
+ return <Root {...otherProperties}>{children}</Root>;
 };

@@ -1,43 +1,42 @@
 {
+ "compilerOptions": {
+  "allowSyntheticDefaultImports": true,
+  "baseUrl": ".",
+
+  "declaration": true,
+  "declarationDir": "dist/types",
+  "emitDeclarationOnly": true,
+  "esModuleInterop": true,
+  "isolatedModules": true,
+  "jsx": "react-jsx",
+  "lib": ["ES2020", "DOM", "DOM.Iterable"],
+  "module": "ESNext",
+
+  /* Bundler mode */
+  "moduleResolution": "Bundler",
+
+  "noFallthroughCasesInSwitch": true,
+  "noUnusedLocals": false,
+  "noUnusedParameters": true,
+  "outDir": "dist",
+  "paths": {
+   "@/*": ["src/*"]
+  },
+  "resolveJsonModule": true,
+  "rootDir": "./",
+  "skipLibCheck": true,
+  /* Linting */
+  "strict": true,
+  "stripInternal": true,
+  "target": "ES2020",
+  "useDefineForClassFields": true
+ },
+ "exclude": ["node_modules", "dist"],
+ "include": ["src/**/*", "tailwind.config.ts", ".storybook/main.ts", ".storybook/preview.tsx"],
+ "ts-node": {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-
-    /* Bundler mode */
-    "moduleResolution": "Bundler",
-
-    "outDir": "dist",
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "declarationDir": "dist/types",
-    "skipLibCheck": true,
-    "stripInternal": true,
-
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx",
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    }
-  },
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS",
-      "jsx": "react-jsx"
-    }
-  },
-  "include": ["src/**/*", "tailwind.config.ts"],
-  "exclude": ["node_modules", "dist"]
+   "jsx": "react-jsx",
+   "module": "CommonJS"
+  }
+ }
 }

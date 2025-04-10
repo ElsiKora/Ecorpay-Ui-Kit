@@ -1,14 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { NotFound } from './NotFound';
-import { Button } from '@/shared/Button/Button';
+import { Button } from "@/shared/Button/Button";
+
+import { NotFound } from "./NotFound";
 
 const meta: Meta<typeof NotFound> = {
-  title: 'Shared/NotFound',
-  component: NotFound,
-  parameters: {
-    // layout: 'centered',
-  },
+ component: NotFound,
+ parameters: {
+  // layout: 'centered',
+ },
+ title: "Shared/NotFound",
 };
 
 export default meta;
@@ -16,29 +17,29 @@ export default meta;
 type Story = StoryObj<typeof NotFound>;
 
 export const Default: Story = {
-  args: {
-    title: 'Кажется, такой страницы не существует.',
-    description: 'Возможно, ссылка оказалась неверной или страница была удалена.',
-    children: <Button variant="primary-l">На главную</Button>,
-  },
+ args: {
+  children: <Button variant="primary-l">На главную</Button>,
+  description: "Возможно, ссылка оказалась неверной или страница была удалена.",
+  title: "Кажется, такой страницы не существует.",
+ },
 };
 
 export const WithoutLink: Story = {
-  args: {
-    title: 'Кажется, такой страницы не существует.',
-    description: 'Возможно, ссылка оказалась неверной или страница была удалена.',
-  },
+ args: {
+  description: "Возможно, ссылка оказалась неверной или страница была удалена.",
+  title: "Кажется, такой страницы не существует.",
+ },
 };
 
 export const WithoutDescription: Story = {
-  args: {
-    title: 'Кажется, такой страницы не существует.',
-    children: <Button variant="primary-l">На главную</Button>,
-  },
+ args: {
+  children: <Button variant="primary-l">На главную</Button>,
+  title: "Кажется, такой страницы не существует.",
+ },
 };
 
 export const OnlyTitle: Story = {
-  args: {
-    title: 'Кажется, такой страницы не существует.',
-  },
+ args: {
+  title: "Кажется, такой страницы не существует.",
+ },
 };

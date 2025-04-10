@@ -1,19 +1,13 @@
-import { LangItem } from '../model/language.type';
+import type { LangItem } from "../model/language.type";
 
-export const filterLanguageList = (langs: LangItem[], selectedLang: string) => {
-  return langs.sort((a, b) => {
-    // Функция для определения приоритета языка
-    const getPriority = (item: LangItem): number => {
-      if (item.code === selectedLang) return 0; // Выбранный язык - первый
-      if (item.code === 'ru') return 1; // Русский - второй
-      if (item.code === 'en') return 2; // Английский - третий
-      return 3; // Все остальные
-    };
+import { getLangsPriority } from "./getLangsPriority";
 
-    const priorityA = getPriority(a);
-    const priorityB = getPriority(b);
+export const filterLanguageList = (langs: Array<LangItem>, selectedLang: string) => {
+ return langs.sort((a, b) => {
+  const priorityA = getLangsPriority(a, selectedLang);
+  const priorityB = getLangsPriority(b, selectedLang);
 
-    // Сравниваем приоритеты
-    return priorityA - priorityB;
-  });
+  // Сравниваем приоритеты
+  return priorityA - priorityB;
+ });
 };

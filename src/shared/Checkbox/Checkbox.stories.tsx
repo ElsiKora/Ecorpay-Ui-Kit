@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Checkbox } from './Checkbox';
+import { Checkbox } from "./Checkbox";
 
 const meta: Meta<typeof Checkbox> = {
-  title: 'Shared/Checkbox',
-  component: Checkbox,
-  parameters: {
-    layout: 'centered',
-  },
+ component: Checkbox,
+ parameters: {
+  layout: "centered",
+ },
+ title: "Shared/Checkbox",
 };
 
 export default meta;
@@ -15,37 +15,37 @@ export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
 export const Default: Story = {
-  args: {
-    label: 'Check me',
-  },
+ args: {
+  label: "Check me",
+ },
 };
 
 export const Checked: Story = {
-  args: {
-    label: 'Check me',
-    checked: true,
-  },
+ args: {
+  checked: true,
+  label: "Check me",
+ },
 };
 
 export const Unchecked: Story = {
-  args: {
-    label: 'Check me',
-    checked: false,
-  },
+ args: {
+  checked: false,
+  label: "Check me",
+ },
 };
 
 export const DisabledChecked: Story = {
-  args: {
-    label: 'Check me',
-    checked: true,
-    disabled: true,
-  },
+ args: {
+  checked: true,
+  disabled: true,
+  label: "Check me",
+ },
 };
 
 export const DisabledUnchecked: Story = {
-  args: {
-    label: 'Check me',
-    checked: false,
-    disabled: true,
-  },
+ args: {
+  checked: false,
+  disabled: true,
+  label: "Check me",
+ },
 };

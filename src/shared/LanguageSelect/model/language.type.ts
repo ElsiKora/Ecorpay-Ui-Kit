@@ -1,4 +1,4 @@
 export interface LangItem {
-  label: string;
-  code: string;
+ code: string;
+ label: string;
 }

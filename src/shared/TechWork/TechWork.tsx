@@ -1,32 +1,35 @@
-import { cn } from '@/utils/cn';
-import { FC, ReactNode } from 'react';
-import TechWorkIcon from '@/icons/techWwork.svg';
+import type { FC, ReactNode } from "react";
 
-export interface TechWorkProps {
-  title: string;
+import TechWorkIcon from "@/icons/techWwork.svg";
+import { cn } from "@/utils/cn";
 
-  description?: string;
-  children?: ReactNode;
-  className?: string;
+export interface TechWorkProperties {
+ children?: ReactNode;
+
+ className?: string;
+ description?: string;
+ title: string;
 }
-export const TechWork: FC<TechWorkProps> = (props) => {
-  const { title, children, className, description } = props;
-  return (
-    <section className={cn('flex flex-col mob:gap-30px tablet:gap-50px items-center', className)}>
-      <TechWorkIcon className="mob:w-56px mob:h-56px tablet:w-92px tablet:h-92px pc:w-[7.1875rem] pc:h-[7.1875rem]" />
 
-      <div className="flex flex-col mob:gap-10px tablet:gap-5 items-center">
-        <h1 className="mob:text-base tablet:text-xl text-center font-medium max-w-[400px] text-black">
-          {title}
-        </h1>
-        {description ? (
-          <p className="mob:text-xs tablet:text-base text-center font-normal max-w-[400px]">
-            {description}
-          </p>
-        ) : null}
-      </div>
+export const TechWork: FC<TechWorkProperties> = (properties) => {
+ const { children, className, description, title } = properties;
 
-      {children}
-    </section>
-  );
+ return (
+  <section className={cn("flex flex-col mob:gap-30px tablet:gap-50px items-center", className)}>
+   <TechWorkIcon className="mob:size-56px tablet:size-92px pc:size-[7.1875rem]" />
+
+   <div className="flex flex-col items-center mob:gap-10px tablet:gap-5">
+    <h1 className="max-w-[400px] text-center font-medium text-black mob:text-base tablet:text-xl">
+     {title}
+    </h1>
+    {description ? (
+     <p className="max-w-[400px] text-center font-normal mob:text-xs tablet:text-base">
+      {description}
+     </p>
+    ) : null}
+   </div>
+
+   {children}
+  </section>
+ );
 };

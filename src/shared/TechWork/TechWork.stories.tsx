@@ -1,14 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { TechWork } from './TechWork';
-import { Button } from '@/shared/Button/Button';
+import { Button } from "@/shared/Button/Button";
+
+import { TechWork } from "./TechWork";
 
 const meta: Meta<typeof TechWork> = {
-  title: 'Shared/TechWork',
-  component: TechWork,
-  parameters: {
-    // layout: 'centered',
-  },
+ component: TechWork,
+ parameters: {
+  // layout: 'centered',
+ },
+ title: "Shared/TechWork",
 };
 
 export default meta;
@@ -16,10 +17,10 @@ export default meta;
 type Story = StoryObj<typeof TechWork>;
 
 export const Default: Story = {
-  args: {
-    title: 'На сайте ведутся технические работы до 12:00 МСК.',
-    description:
-      'Уважаемый пользователь, мы делаем все возможное, чтобы Вы как можно скорее вернулись возможностям кошелька.',
-    children: <Button variant="primary-l">Обновить</Button>,
-  },
+ args: {
+  children: <Button variant="primary-l">Обновить</Button>,
+  description:
+   "Уважаемый пользователь, мы делаем все возможное, чтобы Вы как можно скорее вернулись возможностям кошелька.",
+  title: "На сайте ведутся технические работы до 12:00 МСК.",
+ },
 };

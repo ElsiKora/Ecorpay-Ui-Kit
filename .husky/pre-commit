@@ -1,2 +1,4 @@
+#!/usr/bin/env sh
+
 echo '⌛️⌛️⌛️ Running pre-commiting checks...'
 npx lint-staged

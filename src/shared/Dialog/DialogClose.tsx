@@ -1,17 +1,18 @@
-import { FC, ReactNode } from 'react';
-import { Close, type DialogCloseProps as CloseProps } from '@radix-ui/react-dialog';
+import type { FC, ReactNode } from "react";
 
-export interface DialogCloseProps extends CloseProps {
-  className?: string;
-  children: ReactNode;
+import { Close, type DialogCloseProps as CloseProperties } from "@radix-ui/react-dialog";
+
+export interface DialogCloseProperties extends CloseProperties {
+ children: ReactNode;
+ className?: string;
 }
 
-export const DialogClose: FC<DialogCloseProps> = (props) => {
-  const { children, asChild = true, ...otherProps } = props;
+export const DialogClose: FC<DialogCloseProperties> = (properties) => {
+ const { asChild = true, children, ...otherProperties } = properties;
 
-  return (
-    <Close asChild={asChild} {...otherProps}>
-      {children}
-    </Close>
-  );
+ return (
+  <Close asChild={asChild} {...otherProperties}>
+   {children}
+  </Close>
+ );
 };

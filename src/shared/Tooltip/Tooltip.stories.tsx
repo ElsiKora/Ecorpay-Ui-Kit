@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Tooltip } from './Tooltip';
+import { Tooltip } from "./Tooltip";
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Shared/Tooltip',
-  component: Tooltip,
-  parameters: {
-    // layout: 'centered',
-  },
+ component: Tooltip,
+ parameters: {
+  // layout: 'centered',
+ },
+ title: "Shared/Tooltip",
 };
 
 export default meta;
@@ -15,33 +15,33 @@ export default meta;
 type Story = StoryObj<typeof Tooltip>;
 
 export const Question: Story = {
-  args: {
-    children:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ad dolor reprehenderit',
-  },
+ args: {
+  children:
+   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ad dolor reprehenderit",
+ },
 };
 
 export const QuestionOpened: Story = {
-  args: {
-    rootProps: { open: true },
-    children:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ad dolor reprehenderit',
-  },
+ args: {
+  children:
+   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ad dolor reprehenderit",
+  rootProps: { open: true },
+ },
 };
 
 export const Exclamation: Story = {
-  args: {
-    triggerType: 'exclamation',
-    children:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ad dolor reprehenderit',
-  },
+ args: {
+  children:
+   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ad dolor reprehenderit",
+  triggerType: "exclamation",
+ },
 };
 
 export const ExclamationOpened: Story = {
-  args: {
-    triggerType: 'exclamation',
-    rootProps: { open: true },
-    children:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ad dolor reprehenderit',
-  },
+ args: {
+  children:
+   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ad dolor reprehenderit",
+  rootProps: { open: true },
+  triggerType: "exclamation",
+ },
 };
