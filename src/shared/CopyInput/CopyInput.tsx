@@ -43,7 +43,7 @@ export const CopyInput: FC<CopyInputProperties> = (properties) => {
    variant="clear"
    withIcon={false}>
    <Input
-    className="cursor-pointer focus-within:border-black-100 hover:border-black-100 hover:bg-accent-100"
+    className="focus-within:border-black-100 hover:border-black-100 hover:bg-accent-100 cursor-pointer"
     disabled={disabled}
     inputFieldClassName="cursor-pointer"
     label={label}

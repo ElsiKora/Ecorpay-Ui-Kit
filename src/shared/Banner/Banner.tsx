@@ -7,7 +7,7 @@ import { cva } from "class-variance-authority";
 // import CloseIcon from '@/icons/close.svg';
 
 export const bannerVariants = cva(
- "relative flex flex-col gap-5 rounded-[1.25rem] mob:p-25px tablet:p-40px",
+ "mob:p-25px tablet:p-40px relative flex flex-col gap-5 rounded-[1.25rem]",
  {
   defaultVariants: {
    variant: "warn",
@@ -36,8 +36,8 @@ export const Banner: FC<BannerProperties> = (properties) => {
 
  return (
   <Comp className={cn(bannerVariants({ variant }))}>
-   <h3 className="font-medium mob:text-base tablet:text-xl">{titile}</h3>
-   <p className="text-black mob:text-xs tablet:text-sm">{description}</p>
+   <h3 className="mob:text-base tablet:text-xl font-medium">{titile}</h3>
+   <p className="mob:text-xs tablet:text-sm text-black">{description}</p>
    {/* <button className="absolute mob:right-15px mob:top-17px tablet:right-5 tablet:top-5">
         <CloseIcon />
       </button> */}

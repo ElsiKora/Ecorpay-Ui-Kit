@@ -5,15 +5,46 @@ import resolve from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
 import svgr from "@svgr/rollup";
-import autoprefixer from "autoprefixer";
+import { execa } from "execa";
 import { defineConfig } from "rollup";
 import copy from "rollup-plugin-copy";
 import del from "rollup-plugin-delete";
 import { dts } from "rollup-plugin-dts";
-import postcss from "rollup-plugin-postcss";
-import tailwind from "tailwindcss";
 
 import packageJson from "./package.json" with { type: "json" };
+
+// Кастомный плагин для выполнения @tailwindcss/cli
+const tailwindPlugin = () => ({
+ async buildStart() {
+  try {
+   // eslint-disable-next-line no-console
+   console.log("⌛️ Compiling Tailwind CSS...");
+   await execa("npx", [
+    "@tailwindcss/cli",
+    "-i",
+    "src/assets/tailwind.css",
+    "-o",
+    "dist/style.css",
+    "--minify",
+   ]);
+   await execa("npx", [
+    "@tailwindcss/cli",
+    "-i",
+    "src/assets/fonts.css",
+    "-o",
+    "dist/fonts.css",
+    "--minify",
+   ]);
+   // eslint-disable-next-line no-console
+   console.log("✅ Tailwind CSS compiled successfully!");
+  } catch (error) {
+   console.error("Failed to compile Tailwind CSS:", error);
+
+   throw error;
+  }
+ },
+ name: "tailwind",
+});
 
 export default defineConfig([
  {
@@ -57,26 +88,7 @@ export default defineConfig([
     tsconfig: "./tsconfig.json",
    }),
 
-   postcss({
-    extract: "fonts.css",
-    include: "src/assets/fonts.css",
-    minimize: true,
-    plugins: [tailwind, autoprefixer],
-   }),
-
-   postcss({
-    extract: "style.css",
-    include: "src/assets/style.css",
-    minimize: true,
-    plugins: [tailwind, autoprefixer],
-   }),
-
-   postcss({
-    extract: "tailwind.css",
-    include: "src/assets/tailwind.css",
-    minimize: true,
-    plugins: [tailwind, autoprefixer],
-   }),
+   tailwindPlugin(),
 
    copy({
     flatten: false,

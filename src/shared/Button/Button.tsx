@@ -6,7 +6,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
- "font-medium transition-all disabled:bg-black-100 disabled:text-black-300",
+ "disabled:bg-black-100 disabled:text-black-300 font-medium transition-all",
  {
   defaultVariants: {
    variant: "primary-m",
@@ -17,40 +17,40 @@ const buttonVariants = cva(
     clear: "",
     //   Gray variants
     "gray-l":
-     "bg-black-100 px-30px py-15px text-black hover:bg-black-200 mob:rounded-[0.9375rem] mob:text-sm tablet:rounded-[1.25rem] tablet:text-base",
+     "bg-black-100 px-30px py-15px hover:bg-black-200 mob:rounded-[0.9375rem] mob:text-sm tablet:rounded-[1.25rem] tablet:text-base text-black",
 
     "gray-m":
-     "rounded-[1.25rem] bg-black-100 py-10px text-black hover:bg-black-200 mob:px-15px mob:text-xs tablet:px-20px tablet:text-sm",
+     "bg-black-100 py-10px hover:bg-black-200 mob:px-15px mob:text-xs tablet:px-20px tablet:text-sm rounded-[1.25rem] text-black",
 
     "outline-gray-s":
-     "rounded-[1.25rem] border-2 border-black-100 text-black-300 hover:border-accent hover:text-accent mob:px-10px mob:py-7px mob:text-xxs tablet:px-15px tablet:py-10px tablet:text-xs",
+     "border-black-100 text-black-300 hover:border-accent hover:text-accent mob:px-10px mob:py-7px mob:text-xxs tablet:px-15px tablet:py-10px tablet:text-xs rounded-[1.25rem] border-2",
     // Outline variants
     "outline-primary-s":
-     "rounded-[1.25rem] border-2 border-accent text-accent mob:px-10px mob:py-7px mob:text-xxs tablet:px-15px tablet:py-10px tablet:text-xs",
+     "border-accent text-accent mob:px-10px mob:py-7px mob:text-xxs tablet:px-15px tablet:py-10px tablet:text-xs rounded-[1.25rem] border-2",
 
     // Primary variants
     "primary-l":
-     "bg-accent px-30px py-15px text-white hover:bg-accent-500 mob:rounded-[0.9375rem] mob:text-sm tablet:rounded-[1.25rem] tablet:text-base",
+     "bg-accent px-30px py-15px hover:bg-accent-500 mob:rounded-[0.9375rem] mob:text-sm tablet:rounded-[1.25rem] tablet:text-base text-white",
     "primary-m":
-     "rounded-[1.25rem] bg-accent py-10px text-white hover:bg-accent-500 mob:px-15px mob:text-xs tablet:px-20px tablet:text-sm",
+     "bg-accent py-10px hover:bg-accent-500 mob:px-15px mob:text-xs tablet:px-20px tablet:text-sm rounded-[1.25rem] text-white",
 
     // Red variants
     "red-l":
-     "bg-red-200 px-30px py-15px text-red-400 hover:bg-red-300 hover:text-red mob:rounded-[0.9375rem] mob:text-sm tablet:rounded-[1.25rem] tablet:text-base",
+     "px-30px py-15px hover:text-red mob:rounded-[0.9375rem] mob:text-sm tablet:rounded-[1.25rem] tablet:text-base bg-red-200 text-red-400 hover:bg-red-300",
 
     // Secondary variants
     "secondary-l":
      "bg-accent-100 px-30px py-15px text-accent hover:bg-accent-200 mob:rounded-[0.9375rem] mob:text-sm tablet:rounded-[1.25rem] tablet:text-base",
     "secondary-m":
-     "rounded-[1.25rem] bg-accent-100 py-10px text-accent hover:bg-accent-200 mob:px-15px mob:text-xs tablet:px-20px tablet:text-sm",
+     "bg-accent-100 py-10px text-accent hover:bg-accent-200 mob:px-15px mob:text-xs tablet:px-20px tablet:text-sm rounded-[1.25rem]",
 
     // Text variants
     "text-l":
-     "bg-transparent px-30px py-15px mob:rounded-[0.9375rem] mob:border-2 mob:border-black-100 mob:text-sm mob:text-black mob:hover:border-accent-100 mob:hover:bg-accent-100 tablet:rounded-[1.25rem] tablet:border-none tablet:text-base tablet:text-black-300 tablet:hover:text-accent",
+     "px-30px py-15px mob:rounded-[0.9375rem] mob:border-2 mob:border-black-100 mob:text-sm mob:text-black mob:hover:border-accent-100 mob:hover:bg-accent-100 tablet:rounded-[1.25rem] tablet:border-none tablet:text-base tablet:text-black-300 tablet:hover:text-accent bg-transparent",
 
     // White variants
     "white-m":
-     "rounded-[1.25rem] bg-white py-10px text-black hover:bg-black hover:text-white mob:px-15px mob:text-xs tablet:px-20px tablet:text-sm",
+     "py-10px mob:px-15px mob:text-xs tablet:px-20px tablet:text-sm rounded-[1.25rem] bg-white text-black hover:bg-black hover:text-white",
    },
   },
  },
@@ -75,7 +75,7 @@ export const Button: FC<ButtonProperties> = (properties) => {
    {loading ? (
     <>
      <span className="opacity-0">{children}</span>
-     <IconLoader className="absolute left-1/2 top-1/2 size-20px -translate-x-1/2 -translate-y-1/2" />
+     <IconLoader className="size-20px absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
     </>
    ) : (
     children

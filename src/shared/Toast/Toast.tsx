@@ -8,7 +8,7 @@ import { cn } from "@/utils/cn";
 import { cva } from "class-variance-authority";
 
 const toastVariants = cva(
- "flex items-center gap-7px mob:rounded-[0.9375rem] mob:p-15px mob:text-xs tablet:rounded-[1.25rem] tablet:p-5 tablet:text-sm",
+ "gap-7px mob:rounded-[0.9375rem] mob:p-15px mob:text-xs tablet:rounded-[1.25rem] tablet:p-5 tablet:text-sm flex items-center",
  {
   defaultVariants: {
    variant: "default",
@@ -16,7 +16,7 @@ const toastVariants = cva(
   variants: {
    variant: {
     danger: "border-2 border-red-300 bg-red-100 text-red-400",
-    default: "border-2 border-black-100 bg-white text-black",
+    default: "border-black-100 border-2 bg-white text-black",
     warn: "border-2 border-orange-300 bg-orange-100 text-orange-400",
    },
   },

@@ -43,15 +43,15 @@ export const Input: FC<InputProperties> = (properties) => {
    )}>
    {/* Label text */}
    {label ? (
-    <span className="font-medium text-black-300 mob:text-xxs tablet:text-sm">{label}</span>
+    <span className="text-black-300 mob:text-xxs tablet:text-sm font-medium">{label}</span>
    ) : null}
 
    {/* Inpfur field container */}
-   <div className="flex gap-[5px] mob:text-xs tablet:text-base">
+   <div className="mob:text-xs tablet:text-base flex gap-[5px]">
     {leftContent}
     <input
      className={cn(
-      "outline-none flex-1 text-black placeholder:text-black-300 bg-transparent transition-colors",
+      "outline-hidden flex-1 text-black placeholder:text-black-300 bg-transparent transition-colors",
       {
        "justify-center text-center placeholder:text-center focus-visible:placeholder:opacity-0":
         align === "center",

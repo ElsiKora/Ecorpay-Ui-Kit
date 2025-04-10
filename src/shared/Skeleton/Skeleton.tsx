@@ -4,7 +4,7 @@ import type { ElementType, FC } from "react";
 import { cn } from "@/utils/cn";
 import { cva } from "class-variance-authority";
 
-export const skeletonVariants = cva("block animate-pulse bg-black-100", {
+export const skeletonVariants = cva("bg-black-100 block animate-pulse", {
  defaultVariants: {
   rounded: "default",
  },

@@ -14,7 +14,7 @@ export const AccordionTrigger: FC<RadixAccordionTriggerProperties> = (properties
  return (
   <Trigger
    className={cn(
-    "font-medium mob:text-xs rounded-2xl tablet:text-base mob:p-15px tablet:p-5 data-[state=open]:text-accent w-full flex items-center justify-between transition-colors outline-none",
+    "font-medium mob:text-xs rounded-2xl tablet:text-base mob:p-15px tablet:p-5 data-[state=open]:text-accent w-full flex items-center justify-between transition-colors outline-hidden",
     {
      "focus-visible:bg-accent-100": variant == "outline",
      "focus-visible:bg-accent-200": variant == "filled",
@@ -26,7 +26,7 @@ export const AccordionTrigger: FC<RadixAccordionTriggerProperties> = (properties
    {variant === "filled" ? (
     <span className="relative  size-[12px]">
      {/* Vertical Line */}
-     <span className="absolute left-1/2 block h-[12px] w-[2px] -translate-x-1/2 rounded-[15px] bg-accent transition-transform group-data-[state=open]:rotate-90" />
+     <span className="bg-accent absolute left-1/2 block h-[12px] w-[2px] -translate-x-1/2 rounded-[15px] transition-transform group-data-[state=open]:rotate-90" />
 
      {/* Horizontal Line */}
      <span

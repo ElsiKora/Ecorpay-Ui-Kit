@@ -18,12 +18,12 @@ export const TechWork: FC<TechWorkProperties> = (properties) => {
   <section className={cn("flex flex-col mob:gap-30px tablet:gap-50px items-center", className)}>
    <TechWorkIcon className="mob:size-56px tablet:size-92px pc:size-[7.1875rem]" />
 
-   <div className="flex flex-col items-center mob:gap-10px tablet:gap-5">
-    <h1 className="max-w-[400px] text-center font-medium text-black mob:text-base tablet:text-xl">
+   <div className="mob:gap-10px tablet:gap-5 flex flex-col items-center">
+    <h1 className="mob:text-base tablet:text-xl max-w-[400px] text-center font-medium text-black">
      {title}
     </h1>
     {description ? (
-     <p className="max-w-[400px] text-center font-normal mob:text-xs tablet:text-base">
+     <p className="mob:text-xs tablet:text-base max-w-[400px] text-center font-normal">
       {description}
      </p>
     ) : null}

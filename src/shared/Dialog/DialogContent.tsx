@@ -35,7 +35,7 @@ export const DialogContent: FC<DialogContentProperties> = (properties) => {
  return (
   <Portal {...portalProps}>
    <Overlay
-    className="fixed inset-0 bg-[rgba(0,0,0,0.50)] data-[state=closed]:animate-fadeOut data-[state=open]:animate-fadeIn"
+    className="data-[state=closed]:animate-fadeOut data-[state=open]:animate-fadeIn fixed inset-0 bg-[rgba(0,0,0,0.50)]"
     {...overlayProps}
    />
    <Content
@@ -45,7 +45,7 @@ export const DialogContent: FC<DialogContentProperties> = (properties) => {
     )}
     {...otherProperties}>
     {withCloseIcon ? (
-     <DialogClose className="absolute mob:right-[10px] mob:top-[10px] tablet:right-5 tablet:top-5">
+     <DialogClose className="mob:right-[10px] mob:top-[10px] tablet:right-5 tablet:top-5 absolute">
       <button type="button">
        <CloseIcon />
       </button>

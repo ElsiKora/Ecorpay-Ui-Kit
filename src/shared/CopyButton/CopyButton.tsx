@@ -7,7 +7,7 @@ import { cn } from "@/utils/cn";
 import { cva } from "class-variance-authority";
 import { useEffect, useRef, useState } from "react";
 
-const copyButtonVariants = cva("group disabled:text-black-300", {
+const copyButtonVariants = cva("disabled:text-black-300 group", {
  defaultVariants: {
   variant: "text-m",
  },
@@ -15,9 +15,9 @@ const copyButtonVariants = cva("group disabled:text-black-300", {
   variant: {
    clear: "",
    "input-m": "",
-   "text-m": "flex items-center gap-5px font-medium transition-colors mob:text-xs tablet:text-sm",
+   "text-m": "gap-5px mob:text-xs tablet:text-sm flex items-center font-medium transition-colors",
    "text-m-reversed":
-    "flex flex-row-reverse items-center gap-5px font-medium transition-colors mob:text-xs tablet:text-sm",
+    "gap-5px mob:text-xs tablet:text-sm flex flex-row-reverse items-center font-medium transition-colors",
   },
  },
 });
