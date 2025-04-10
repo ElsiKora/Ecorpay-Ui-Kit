@@ -1,12 +1,8 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
 import svgr from "vite-plugin-svgr";
-
-// const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const config: StorybookConfig = {
  addons: [
@@ -31,6 +27,7 @@ const config: StorybookConfig = {
    config.resolve.alias = {
     // eslint-disable-next-line @elsikora/typescript/no-misused-spread
     ...config.resolve.alias,
+    // eslint-disable-next-line @elsikora/unicorn/prefer-module
     "@": path.resolve(__dirname, "../src"),
    };
   }

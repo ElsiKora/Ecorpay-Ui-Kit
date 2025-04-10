@@ -48,14 +48,14 @@ export const Default: Story = {
  render: () => {
   return (
    <ScrollArea
-    className="max-w-[550px] mob:max-h-[165px] tablet:max-h-[240px]"
+    className="mob:max-h-[165px] tablet:max-h-[240px] max-w-[550px]"
     scrollbarClassName="translate-x-[10px]">
     <ul className="flex flex-col gap-2">
      {itemsArray.map(({ label, text }, index) => (
       <li className="flex items-center justify-between" key={label + index.toString()}>
-       <span className="flex items-center gap-5px text-base">{label}</span>
+       <span className="gap-5px flex items-center text-base">{label}</span>
 
-       <span className="rounded-[1.375rem] bg-accent-200 px-15px py-6px text-sm text-accent">
+       <span className="bg-accent-200 px-15px py-6px text-accent rounded-[1.375rem] text-sm">
         {text}
        </span>
       </li>
@@ -71,15 +71,15 @@ export const Horizontal: Story = {
  render: () => {
   return (
    <ScrollArea
-    className="max-w-[550px] mob:max-h-[165px] tablet:max-h-[240px]"
+    className="mob:max-h-[165px] tablet:max-h-[240px] max-w-[550px]"
     scrollbarClassName="translate-y-[10px]"
     scrollbarProps={{ orientation: "horizontal" }}>
     <ul className="flex gap-2">
      {itemsArray.map(({ label, text }, index) => (
       <li className="flex items-center justify-between" key={label + index.toString()}>
-       <span className="flex items-center gap-5px text-base">{label}</span>
+       <span className="gap-5px flex items-center text-base">{label}</span>
 
-       <span className="rounded-[1.375rem] bg-accent-200 px-15px py-6px text-sm text-accent">
+       <span className="bg-accent-200 px-15px py-6px text-accent rounded-[1.375rem] text-sm">
         {text}
        </span>
       </li>

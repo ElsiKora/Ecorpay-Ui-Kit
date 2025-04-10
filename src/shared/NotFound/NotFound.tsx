@@ -17,10 +17,10 @@ export const NotFound: FC<NotFoundProperties> = (properties) => {
   <section className={cn("flex flex-col mob:gap-30px tablet:gap-50px items-center", className)}>
    <NotFoundIcon className="mob:h-63px mob:w-[11.75rem] tablet:h-98px tablet:w-[18.25rem]" />
 
-   <div className="flex flex-col items-center mob:gap-10px tablet:gap-5">
-    <h1 className="text-center font-medium mob:text-base tablet:text-xl">{title}</h1>
+   <div className="mob:gap-10px tablet:gap-5 flex flex-col items-center">
+    <h1 className="mob:text-base tablet:text-xl text-center font-medium">{title}</h1>
     {description ? (
-     <p className="max-w-[350px] text-center font-normal mob:text-xs tablet:text-base">
+     <p className="mob:text-xs tablet:text-base max-w-[350px] text-center font-normal">
       {description}
      </p>
     ) : null}

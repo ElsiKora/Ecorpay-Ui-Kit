@@ -1,8 +1,6 @@
-import "./assets/fonts.css";
-import "./assets/style.css";
-import "./assets/tailwind.css";
+// import "./assets/fonts.css";
+// import "./assets/tailwind.css";
 
-export { default as tailwindConfig } from "../tailwind.config";
 export {
  Accordion,
  type AccordionProperties as AccordionProps,

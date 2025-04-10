@@ -91,7 +91,7 @@ export default {
   "body-leading-blank": [2, "always"],
   "body-max-line-length": [2, "always", 100],
   "footer-leading-blank": [2, "always"],
-  "footer-max-line-length": [2, "always", 100],
+  "footer-max-line-length": [2, "always", 200],
   "header-case": [2, "always", "lower-case"],
   "header-full-stop": [2, "never", "."],
   "header-max-length": [2, "always", 100],

@@ -15,14 +15,14 @@ import { filterLanguageList } from "../helper/filterLanguageList";
 import { FlagIcon } from "./FlagIcon";
 import { LanguageItem } from "./LanguageItem";
 
-const languageSelectVariants = cva("border-2 border-black-100 text-sm", {
+const languageSelectVariants = cva("border-black-100 border-2 text-sm", {
  defaultVariants: {
   variant: "rounded",
  },
  variants: {
   variant: {
-   rounded: "w-[108px] rounded-[1.875rem] p-7px",
-   square: "w-[115px] rounded-[0.625rem] p-8px",
+   rounded: "p-7px w-[108px] rounded-[1.875rem]",
+   square: "p-8px w-[115px] rounded-[0.625rem]",
   },
  },
 });
@@ -73,14 +73,14 @@ export const LanguageSelect: FC<LanguageSelectProperties> = (properties) => {
     aria-label="Language"
     className={cn(
      languageSelectVariants({ variant }),
-     "group font-medium flex items-center data-[state=closed]:transition-colors outline-none hover:border-accent data-[state=open]:rounded-ee-none data-[state=open]:rounded-es-none data-[state=open]:border-b-0",
+     "group font-medium flex items-center data-[state=closed]:transition-colors outline-hidden hover:border-accent data-[state=open]:rounded-ee-none data-[state=open]:rounded-es-none data-[state=open]:border-b-0",
      { "max-h-45px": variant === "rounded", "max-h-52px": variant === "square" },
      triggerClassName,
     )}>
-    <span className="flex w-full items-center gap-5px p-6px">
+    <span className="gap-5px p-6px flex w-full items-center">
      <FlagIcon code={rootProperties?.value ?? rootProperties?.defaultValue ?? ""} />
      <SelectBase.Value />
-     <ShevronIcon className="ml-auto h-8px w-14px text-black-300 transition-all group-hover:text-accent group-data-[state=open]:-rotate-180" />
+     <ShevronIcon className="h-8px w-14px text-black-300 group-hover:text-accent ml-auto transition-all group-data-[state=open]:-rotate-180" />
     </span>
    </SelectBase.Trigger>
 
@@ -101,35 +101,35 @@ export const LanguageSelect: FC<LanguageSelectProperties> = (properties) => {
      side="bottom"
      sideOffset={0}>
      <SelectBase.Viewport className="SelectBaseViewport">
-      <ScrollArea className="flex max-h-[160px] pr-10px">
+      <ScrollArea className="pr-10px flex max-h-[160px]">
        {filterLanguageList(langList, rootProperties.value ?? rootProperties.defaultValue ?? "").map(
         ({ code, label }, key) => (
          <LanguageItem
           className="
 						mb-5px
+						gap-5px
+						p-6px
+
+						outline-hidden
+						data-[state=unchecked]:data-highlighted:border-black-100
+						data-[state=checked]:bg-accent-100
+
 						flex
 						items-center
 
-						gap-5px
 						rounded-[0.625rem]
 						border-2
-
 						border-transparent
-						p-6px
-
 						text-sm
 						font-medium
-						leading-none
-						outline-none
-						transition-colors
 
+						leading-none
+
+						transition-colors
 						last-of-type:mb-0
 
 						data-[state=checked]:cursor-default
 						data-[state=unchecked]:cursor-pointer
-
-						data-[state=unchecked]:data-[highlighted]:border-black-100
-						data-[state=checked]:bg-accent-100
 					"
           key={code + key.toString()}
           value={code}>
