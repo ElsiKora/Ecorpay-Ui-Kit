@@ -6,6 +6,7 @@ const config = {
   "yarn.lock",
   "bun.lock",
   "pnpm-lock.yaml",
+  ".elsikora/commitlint-ai.config.js",
   "dist",
   "bin",
   "build",
