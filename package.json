@@ -13,7 +13,6 @@
   },
   "./css/base.css": "./dist/css/base.css",
   "./css/fonts.css": "./dist/css/fonts.css",
-  "./css/style.css": "./dist/style.css",
   "./css/theme.css": "./dist/css/theme.css",
   "./css/utilities.css": "./dist/css/utilities.css"
  },
