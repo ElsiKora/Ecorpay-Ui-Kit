@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@import "./css/theme/theme.css" layer(theme);
+@import "./css/base/base.css" layer(base);
+
+@source "../../public/**/*.{ttf,woff,woff2}";
