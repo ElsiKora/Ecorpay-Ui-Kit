@@ -8,14 +8,16 @@ import { cn } from "@/utils/cn";
 import * as AccordionBase from "@radix-ui/react-accordion";
 import { cva } from "class-variance-authority";
 
-const boundaryVariants = cva("mob:gap-20px mob:p-15px tablet:gap-30px tablet:p-30px bg-white", {
+import s from "./Boundary.module.scss";
+
+const boundaryVariants = cva(s.boundary, {
  defaultVariants: {
   size: "compact",
  },
  variants: {
   size: {
-   compact: "flex flex-col",
-   full: "mob:flex mob:flex-col tablet:grid tablet:grid-cols-[auto_minmax(450px,1fr)]",
+   compact: s.compact,
+   full: s.full,
   },
  },
 });
@@ -49,33 +51,27 @@ export const Boundary: FC<BoundaryProperties> = (properties) => {
  return (
   <section className={cn(boundaryVariants({ size }), className)}>
    <BoundaryIcon
-    className={cn("", {
-     "mob:w-49px mob:h-56px tablet:w-81px tablet:h-92px": size === "compact",
-     "w-49px h-56px self-center": size === "full",
+    className={cn(s.icon, {
+     [s.compact]: size === "compact",
+     [s.full]: size === "full",
     })}
    />
 
-   <div className="mob:gap-5px tablet:gap-10px flex flex-col">
-    <h2 className="mob:text-base tablet:text-xl">{title}</h2>
-    <p className="text-black-300 mob:text-xs tablet:text-base">{description}</p>
+   <div className={s.content}>
+    <h2 className={s.title}>{title}</h2>
+    <p className={s.description}>{description}</p>
    </div>
 
-   <AccordionBase.Root className="col-span-full" collapsible type="single">
-    <AccordionBase.Item
-     className="bg-accent-100 data-[state=closed]:hover:bg-accent-200 group rounded-2xl transition-colors"
-     value="error">
-     <AccordionBase.Trigger
-      className={cn(
-       "font-medium mob:text-xs rounded-2xl tablet:text-base mob:p-15px tablet:p-5 text-accent w-full flex items-center gap-8px transition-colors outline-hidden focus-visible:bg-accent-200",
-      )}>
+   <AccordionBase.Root className={s.accordion} collapsible type="single">
+    <AccordionBase.Item className={s.accordionItem} value="error">
+     <AccordionBase.Trigger className={s.accordionTrigger}>
       {errorTitle}
-
-      <ShevronIcon className="text-accent transition-transform group-data-[state=open]:rotate-180" />
+      <ShevronIcon className={s.shevron} />
      </AccordionBase.Trigger>
-     <AccordionBase.Content className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden transition-all">
-      <div className="mob:px-15px mob:pb-15px mob:pt-5px mob:text-xs tablet:px-5 tablet:pb-5 tablet:pt-0 tablet:text-sm flex">
-       <pre className="text-black-300 flex-1 text-wrap">{JSON.stringify(errorText, null, 2)}</pre>
-       <CopyButton className="self-end" valueToCopy={JSON.stringify(errorText, null, 2)} />
+     <AccordionBase.Content className={s.accordionContent}>
+      <div className={s.accordionInner}>
+       <pre className={s.pre}>{JSON.stringify(errorText, null, 2)}</pre>
+       <CopyButton className={s.copyButton} valueToCopy={JSON.stringify(errorText, null, 2)} />
       </div>
      </AccordionBase.Content>
     </AccordionBase.Item>

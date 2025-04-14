@@ -1,0 +1,150 @@
+.boundary {
+ gap: var(--spacing-20px);
+ padding: var(--spacing-15px);
+ background-color: var(--color-white);
+
+ @media (width >= 768px) {
+  gap: var(--spacing-30px);
+  padding: var(--spacing-30px);
+ }
+
+ &.compact {
+  display: flex;
+  flex-direction: column;
+ }
+
+ &.full {
+  display: flex;
+  flex-direction: column;
+
+  @media (width >= 768px) {
+   display: grid;
+   grid-template-columns: auto minmax(450px, 1fr);
+  }
+ }
+}
+
+.icon {
+ &.compact {
+  width: 49px;
+  height: 56px;
+
+  @media (width >= 768px) {
+   width: 81px;
+   height: 92px;
+  }
+ }
+
+ &.full {
+  align-self: center;
+  width: 49px;
+  height: 56px;
+ }
+}
+
+.content {
+ display: flex;
+ flex-direction: column;
+ gap: var(--spacing-5px);
+
+ @media (width >= 768px) {
+  gap: var(--spacing-10px);
+ }
+}
+
+.title {
+ font: var(--text-base);
+
+ @media (width >= 768px) {
+  font: var(--text-xl);
+ }
+}
+
+.description {
+ color: var(--color-black-300);
+ font: var(--text-xs);
+
+ @media (width >= 768px) {
+  font: var(--text-base);
+ }
+}
+
+.accordion {
+ grid-column: 1 / -1;
+}
+
+.accordionItem {
+ background-color: var(--color-accent-100);
+ border-radius: var(--spacing-16px);
+ transition: all 0.3s ease;
+
+ &[data-state="closed"]:hover {
+  background-color: var(--color-accent-200);
+ }
+}
+
+.accordionTrigger {
+ display: flex;
+ gap: var(--spacing-8px);
+ align-items: center;
+ width: 100%;
+ padding: var(--spacing-15px);
+ color: var(--color-accent);
+ font: var(--text-xs);
+ font-weight: 500;
+ border-radius: var(--spacing-16px);
+ outline: none;
+ transition: all 0.3s ease;
+
+ @media (width >= 768px) {
+  padding: var(--spacing-20px);
+  font: var(--text-base);
+ }
+
+ &:focus-visible {
+  background-color: var(--color-accent-200);
+ }
+}
+
+.shevron {
+ color: var(--color-accent);
+ transition: transform 0.3s ease;
+
+ [data-state="open"] & {
+  transform: rotate(180deg);
+ }
+}
+
+.accordionContent {
+ overflow: hidden;
+ transition: all 0.3s ease;
+
+ &[data-state="closed"] {
+  animation: var(--animate-accordion-up);
+ }
+
+ &[data-state="open"] {
+  animation: var(--animate-accordion-down);
+ }
+}
+
+.accordionInner {
+ display: flex;
+ padding: var(--spacing-5px) var(--spacing-15px) var(--spacing-15px) var(--spacing-15px);
+ font: var(--text-xs);
+
+ @media (width >= 768px) {
+  padding: 0 var(--spacing-20px) var(--spacing-20px) var(--spacing-20px);
+  font: var(--text-sm);
+ }
+}
+
+.pre {
+ flex: 1;
+ color: var(--color-black-300);
+ text-wrap: wrap;
+}
+
+.copyButton {
+ align-self: flex-end;
+}
