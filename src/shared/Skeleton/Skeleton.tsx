@@ -4,14 +4,16 @@ import type { ElementType, FC } from "react";
 import { cn } from "@/utils/cn";
 import { cva } from "class-variance-authority";
 
-export const skeletonVariants = cva("bg-black-100 block animate-pulse", {
+import s from "./Skeleton.module.scss";
+
+export const skeletonVariants = cva(s.skeleton, {
  defaultVariants: {
   rounded: "default",
  },
  variants: {
   rounded: {
-   default: "rounded-[1.25rem]",
-   full: "rounded-full",
+   default: s.rounded_default,
+   full: s.rounded_full,
   },
  },
 });
