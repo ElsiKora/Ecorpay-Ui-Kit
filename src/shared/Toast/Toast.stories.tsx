@@ -21,6 +21,14 @@ export const Default: Story = {
  },
 };
 
+export const Primary: Story = {
+ args: {
+  description:
+   "Оператор Сервиса принимает необходимые и достаточные организационные и технические меры для защиты персональной информации Пользователя.",
+  variant: "primary",
+ },
+};
+
 export const Warning: Story = {
  args: {
   description:

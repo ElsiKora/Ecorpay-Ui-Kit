@@ -7,43 +7,59 @@ import WarnIcon from "@/icons/warn.svg";
 import { cn } from "@/utils/cn";
 import { cva } from "class-variance-authority";
 
-const toastVariants = cva(
- "gap-7px mob:rounded-[0.9375rem] mob:p-15px mob:text-xs tablet:rounded-[1.25rem] tablet:p-5 tablet:text-sm flex items-center",
- {
-  defaultVariants: {
-   variant: "default",
-  },
-  variants: {
-   variant: {
-    danger: "border-2 border-red-300 bg-red-100 text-red-400",
-    default: "border-black-100 border-2 bg-white text-black",
-    warn: "border-2 border-orange-300 bg-orange-100 text-orange-400",
-   },
+import s from "./Toast.module.scss";
+
+const toastVariants = cva(s.toast, {
+ defaultVariants: {
+  variant: "default",
+ },
+ variants: {
+  variant: {
+   danger: s.danger,
+   default: s.base,
+   primary: s.primary,
+   warn: s.warn,
   },
  },
-);
+});
 
 export interface ToastProperties extends VariantProps<typeof toastVariants> {
  className?: string;
 
  description: string;
  onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+ withIcon?: boolean;
 }
 
 export const Toast: FC<ToastProperties> = (properties) => {
- const { className, description, onClose, variant } = properties;
+ const { className, description, onClose, variant, withIcon } = properties;
+
+ const renderIcon = () => {
+  return (
+   <>
+    {variant === "danger" && <CancelIcon className={s.icon} />}
+    {variant === "warn" && <WarnIcon className={cn(s.icon, s.warn)} />}
+    {variant === "default" && <WarnIcon className={cn(s.icon, s.base)} />}
+   </>
+  );
+ };
 
  return (
   <div className={cn(toastVariants({ variant }), className)}>
-   {variant === "danger" && <CancelIcon className="shrink-0" />}
-   {variant === "warn" && <WarnIcon className="shrink-0 text-orange-300" />}
-   {!variant && <WarnIcon className="shrink-0 text-black" />}
+   {withIcon ? renderIcon() : null}
 
    <p>{description}</p>
 
-   <button className="ml-auto" onClick={(event) => onClose?.(event)} type="button">
-    <CloseIcon />
-   </button>
+   {onClose ? (
+    <button
+     className={s.close}
+     onClick={(event) => {
+      onClose?.(event);
+     }}
+     type="button">
+     <CloseIcon />
+    </button>
+   ) : null}
   </div>
  );
 };
