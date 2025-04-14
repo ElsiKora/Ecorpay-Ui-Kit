@@ -7,17 +7,17 @@ import { cn } from "@/utils/cn";
 import { cva } from "class-variance-authority";
 import { useEffect, useRef, useState } from "react";
 
-const copyButtonVariants = cva("disabled:text-black-300 group", {
+import s from "./CopyButton.module.scss";
+
+const copyButtonVariants = cva(s.button, {
  defaultVariants: {
   variant: "text-m",
  },
  variants: {
   variant: {
    clear: "",
-   "input-m": "",
-   "text-m": "gap-5px mob:text-xs tablet:text-sm flex items-center font-medium transition-colors",
-   "text-m-reversed":
-    "gap-5px mob:text-xs tablet:text-sm flex flex-row-reverse items-center font-medium transition-colors",
+   "text-m": s.text_m,
+   "text-m-reversed": s.text_m_reversed,
   },
  },
 });
@@ -73,16 +73,7 @@ export const CopyButton: FC<CopyButtonProperties> = (properties) => {
 
  const renderIcon = () => {
   if (withIcon) {
-   if (isCopied)
-    return (
-     <IconCopyDone
-      className={cn(
-       "transition-colors",
-       { "group-hover:text-black": isCopied },
-       copiedIconClassName,
-      )}
-     />
-    );
+   if (isCopied) return <IconCopyDone className={cn(s.copiedIcon, copiedIconClassName)} />;
    else return <IconCopy className={copyIconClassName} />;
   } else return null;
  };
@@ -92,8 +83,7 @@ export const CopyButton: FC<CopyButtonProperties> = (properties) => {
    className={cn(
     copyButtonVariants({ variant }),
     {
-     "text-accent hover:text-accent-500": !isCopied,
-     "text-black-300": isCopied,
+     [s.copied]: isCopied,
     },
     className,
    )}
