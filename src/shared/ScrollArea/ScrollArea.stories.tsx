@@ -3,6 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { ScrollArea } from "./ScrollArea";
 
+import s from "./ScrollArea.stories.module.scss";
+
 const meta: Meta<typeof ScrollArea> = {
  component: ScrollArea,
  parameters: {
@@ -47,17 +49,12 @@ export const Default: Story = {
  args: {},
  render: () => {
   return (
-   <ScrollArea
-    className="mob:max-h-[165px] tablet:max-h-[240px] max-w-[550px]"
-    scrollbarClassName="translate-x-[10px]">
-    <ul className="flex flex-col gap-2">
+   <ScrollArea className={s.scrollArea} scrollbarClassName={s.scrollbarVertical}>
+    <ul className={s.list}>
      {itemsArray.map(({ label, text }, index) => (
-      <li className="flex items-center justify-between" key={label + index.toString()}>
-       <span className="gap-5px flex items-center text-base">{label}</span>
-
-       <span className="bg-accent-200 px-15px py-6px text-accent rounded-[1.375rem] text-sm">
-        {text}
-       </span>
+      <li className={s.item} key={label + index.toString()}>
+       <span className={s.label}>{label}</span>
+       <span className={s.badge}>{text}</span>
       </li>
      ))}
     </ul>
@@ -71,17 +68,14 @@ export const Horizontal: Story = {
  render: () => {
   return (
    <ScrollArea
-    className="mob:max-h-[165px] tablet:max-h-[240px] max-w-[550px]"
-    scrollbarClassName="translate-y-[10px]"
+    className={s.scrollArea}
+    scrollbarClassName={s.scrollbarHorizontal}
     scrollbarProps={{ orientation: "horizontal" }}>
-    <ul className="flex gap-2">
+    <ul className={s.listHorizontal}>
      {itemsArray.map(({ label, text }, index) => (
-      <li className="flex items-center justify-between" key={label + index.toString()}>
-       <span className="gap-5px flex items-center text-base">{label}</span>
-
-       <span className="bg-accent-200 px-15px py-6px text-accent rounded-[1.375rem] text-sm">
-        {text}
-       </span>
+      <li className={s.item} key={label + index.toString()}>
+       <span className={s.label}>{label}</span>
+       <span className={s.badge}>{text}</span>
       </li>
      ))}
     </ul>
