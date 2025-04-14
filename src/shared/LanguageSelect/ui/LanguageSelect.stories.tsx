@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { useState } from "react";
 
-import { LanguageSelect } from "./LanguageSelect";
+import { LanguageSelect } from "./LanguageSelect/LanguageSelect";
 
 const meta: Meta<typeof LanguageSelect> = {
  args: {

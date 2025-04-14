@@ -4,7 +4,7 @@ import type { FC, RefObject } from "react";
 import { cn } from "@/utils/cn";
 import { Item, ItemText } from "@radix-ui/react-select";
 
-import { FlagIcon } from "./FlagIcon";
+import { FlagIcon } from "./FlagIcon/FlagIcon";
 
 interface LanguageItemProperties extends SelectItemProps {
  flagIconClassName?: string;
