@@ -9,6 +9,8 @@ import { Input } from "@/shared/Input/Input";
 import { cn } from "@/utils/cn";
 import { useState } from "react";
 
+import s from "./CopyInput.module.scss";
+
 export interface CopyInputProperties
  extends Pick<
    CopyButtonProperties,
@@ -35,7 +37,7 @@ export const CopyInput: FC<CopyInputProperties> = (properties) => {
 
  return (
   <CopyButton
-   className={cn("text-left", className)}
+   className={cn(s.button, { [s.copied]: isCopied }, className)}
    copiedStateHideDelay={copiedStateHideDelay}
    copyHandler={setIsCopied}
    disabled={disabled}
@@ -43,7 +45,7 @@ export const CopyInput: FC<CopyInputProperties> = (properties) => {
    variant="clear"
    withIcon={false}>
    <Input
-    className="focus-within:border-black-100 hover:border-black-100 hover:bg-accent-100 cursor-pointer"
+    className={s.input}
     disabled={disabled}
     inputFieldClassName="cursor-pointer"
     label={label}
@@ -51,13 +53,7 @@ export const CopyInput: FC<CopyInputProperties> = (properties) => {
     readOnly
     rightContent={
      isCopied ? (
-      <IconCopyDone
-       className={cn(
-        "transition-colors",
-        { "group-hover:text-black-300": isCopied },
-        copiedIconClassName,
-       )}
-      />
+      <IconCopyDone className={cn(s.copiedIcon, copiedIconClassName)} />
      ) : (
       <IconCopy className={copyIconClassName} />
      )
