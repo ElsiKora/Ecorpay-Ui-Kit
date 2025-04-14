@@ -1,6 +1,6 @@
 import type { VariantProps } from "class-variance-authority";
 
-import type { accordionVariants } from "../Accordion";
+import type { accordionVariants } from "../ui/Accordion";
 
 import { createContext } from "react";
 

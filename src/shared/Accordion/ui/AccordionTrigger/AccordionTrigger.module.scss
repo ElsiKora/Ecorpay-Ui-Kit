@@ -1,0 +1,77 @@
+.trigger {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ width: 100%;
+ padding: var(--spacing-15px);
+ font: var(--text-xs);
+ font-weight: 500;
+ border-radius: var(--spacing-16px);
+ outline: none;
+ cursor: pointer;
+ transition: all 0.3s ease;
+
+ @media (width >= 768px) {
+  padding: var(--spacing-20px);
+  font: var(--text-base);
+ }
+
+ &[data-state="open"] {
+  color: var(--color-accent);
+ }
+
+ &.outline:focus-visible {
+  background-color: var(--color-accent-100);
+ }
+
+ &.filled:focus-visible {
+  background-color: var(--color-accent-200);
+ }
+}
+
+.iconWrapper {
+ position: relative;
+ width: 12px;
+ height: 12px;
+}
+
+.verticalLine {
+ position: absolute;
+ left: 50%;
+ display: block;
+ width: 2px;
+ height: 12px;
+ background-color: var(--color-accent);
+ border-radius: 15px;
+ transform: translateX(-50%);
+ transition: transform 0.3s ease;
+
+ [data-state="open"] & {
+  transform: translateX(-50%) rotate(90deg);
+ }
+}
+
+.horizontalLine {
+ position: absolute;
+ top: 50%;
+ left: 0;
+ width: 12px;
+ height: 2px;
+ background-color: var(--color-accent);
+ border-radius: 15px;
+ transform: translateY(-50%);
+ transition: opacity 0.3s ease;
+
+ [data-state="open"] & {
+  opacity: 0;
+ }
+}
+
+.shevron {
+ color: var(--color-accent);
+ transition: transform 0.3s ease;
+
+ [data-state="open"] & {
+  transform: rotate(180deg);
+ }
+}

@@ -1,12 +1,12 @@
 import type { VariantProps } from "class-variance-authority";
 
-import type { AccordionContextProperties } from "./lib/accordionContext";
+import type { AccordionContextProperties } from "../lib/accordionContext";
 
 import * as AccordionBase from "@radix-ui/react-accordion";
 import { cva } from "class-variance-authority";
 import { type FC, useMemo } from "react";
 
-import { AccordionContext } from "./lib/accordionContext";
+import { AccordionContext } from "../lib/accordionContext";
 
 export const accordionVariants = cva("", {
  defaultVariants: {

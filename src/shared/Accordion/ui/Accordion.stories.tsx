@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Accordion } from "./Accordion";
-import { AccordionItem } from "./AccordionItem";
+import { AccordionItem } from "./AccordionItem/AccordionItem";
 
 const meta: Meta<typeof Accordion> = {
  component: Accordion,
- parameters: {
-  // layout: 'centered',
- },
+ parameters: {},
  title: "Shared/Accordion",
 };
 
@@ -19,7 +17,11 @@ export const Filled: Story = {
  render: () => {
   return (
    <>
-    <Accordion className="flex flex-col gap-4" collapsible type="single" variant="filled">
+    <Accordion
+     collapsible
+     style={{ display: "flex", flexDirection: "column", gap: "16px" }}
+     type="single"
+     variant="filled">
      <AccordionItem triggerText="Hello" value="1">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus temporibus fugiat fugit
       nobis, perspiciatis facilis sapiente ex corrupti adipisci delectus laudantium! Excepturi non
@@ -46,7 +48,11 @@ export const Outline: Story = {
  render: () => {
   return (
    <>
-    <Accordion className="flex flex-col gap-4" collapsible type="single" variant="outline">
+    <Accordion
+     collapsible
+     style={{ display: "flex", flexDirection: "column", gap: "16px" }}
+     type="single"
+     variant="outline">
      <AccordionItem triggerText="Hello" value="1">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus temporibus fugiat fugit
       nobis, perspiciatis facilis sapiente ex corrupti adipisci delectus laudantium! Excepturi non
