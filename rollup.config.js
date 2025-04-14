@@ -5,61 +5,13 @@ import resolve from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
 import svgr from "@svgr/rollup";
-import { execaCommand } from "execa";
 import { defineConfig } from "rollup";
 import copy from "rollup-plugin-copy";
 import del from "rollup-plugin-delete";
 import { dts } from "rollup-plugin-dts";
+import scss from "rollup-plugin-scss";
 
 import packageJson from "./package.json" with { type: "json" };
-
-const compileTailwindFile = async (inputFileUrl, outpuFileName) => {
- try {
-  await execaCommand(
-   `npx @tailwindcss/cli -i ${inputFileUrl} -o dist/css/${outpuFileName} --minify`,
-  );
- } catch (error) {
-  console.error(`❌ Failed to compile ${inputFileUrl}:`, error);
-
-  throw error;
- }
-};
-
-const compileCss = async () => {
- // eslint-disable-next-line no-console
- console.log(`⌛️ Compiling Tailwind CSS...`);
-
- try {
-  const tasks = [
-   compileTailwindFile("src/assets/css/base.css", "base.css"),
-   compileTailwindFile("src/assets/css/theme/theme.css", "theme.css"),
-   compileTailwindFile("src/assets/css/utilities.css", "utilities.css"),
-   compileTailwindFile("src/assets/fonts.css", "fonts.css"),
-  ];
-
-  await Promise.all(tasks);
-  // eslint-disable-next-line no-console
-  console.log("✅ Tailwind CSS compiled successfully!");
- } catch (error) {
-  console.error("❌ Build failed:", error);
-
-  throw error;
- }
-};
-
-// Кастомный плагин для выполнения @tailwindcss/cli
-const tailwindPlugin = () => ({
- async buildStart() {
-  try {
-   await compileCss();
-  } catch (error) {
-   console.error("❌ Failed to compile Tailwind CSS:", error);
-
-   throw error;
-  }
- },
- name: "tailwind",
-});
 
 export default defineConfig([
  {
@@ -103,7 +55,10 @@ export default defineConfig([
     tsconfig: "./tsconfig.json",
    }),
 
-   tailwindPlugin(),
+   scss({
+    output: "dist/styles.css",
+    sourceMap: true,
+   }),
 
    copy({
     flatten: false,

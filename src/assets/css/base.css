@@ -1,74 +1,337 @@
-*,
-::after,
-::before,
-::backdrop,
-::file-selector-button {
- box-sizing: border-box;
- border-color: var(--color-gray-200, currentcolor);
-}
+@layer base {
+ *,
+ ::after,
+ ::before,
+ ::backdrop {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0 solid;
+ }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
- margin: 0;
- appearance: none;
-}
+ input[type="number"]::-webkit-inner-spin-button,
+ input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+ }
 
-input[type="number"] {
- appearance: textfield;
-}
+ input[type="number"] {
+  appearance: textfield;
+ }
 
-.scrollRoot {
- display: flex;
-}
+ .scrollRoot {
+  display: flex;
+ }
 
-.scrollViewport {
- width: 100%;
- height: 100%;
- border-radius: inherit;
-}
+ .scrollViewport {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+ }
 
-.scrollbar {
- display: flex;
- background: var(--color-black-100);
- border-radius: 15px;
- transition: background 160ms ease-out;
- user-select: none;
- touch-action: none;
-}
+ .scrollbar {
+  display: flex;
+  background: var(--color-black-100);
+  border-radius: 15px;
+  transition: background 160ms ease-out;
+  user-select: none;
+  touch-action: none;
+ }
 
-.scrollbar:hover {
- background: var(--color-black-200);
-}
+ .scrollbar:hover {
+  background: var(--color-black-200);
+ }
 
-.scrollbar[data-orientation="vertical"] {
- width: var(--scrollbar-size);
-}
+ .scrollbar[data-orientation="vertical"] {
+  width: var(--scrollbar-size);
+ }
 
-.scrollbar[data-orientation="horizontal"] {
- flex-direction: column;
- height: var(--scrollbar-size);
-}
+ .scrollbar[data-orientation="horizontal"] {
+  flex-direction: column;
+  height: var(--scrollbar-size);
+ }
 
-.scrollThumb {
- position: relative;
- flex: 1;
- background: var(--color-accent);
- border-radius: 15px;
-}
+ .scrollThumb {
+  position: relative;
+  flex: 1;
+  background: var(--color-accent);
+  border-radius: 15px;
+ }
 
-.scrollThumb::before {
- position: absolute;
- top: 50%;
- left: 50%;
- width: 100%;
- min-width: 44px;
- height: 100%;
- min-height: 44px;
- transform: translate(-50%, -50%);
- content: "";
-}
+ .scrollThumb::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  min-width: 44px;
+  height: 100%;
+  min-height: 44px;
+  transform: translate(-50%, -50%);
+  content: "";
+ }
 
-body {
- font-weight: 400;
- font-family: Onest, sans-serif;
+ body {
+  font-weight: 400;
+  font-family: Onest, sans-serif;
+ }
+
+ ::file-selector-button {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0 solid;
+ }
+
+ html,
+ :host {
+  font-family:
+   ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+   "Noto Color Emoji";
+  line-height: 1.5;
+  tab-size: 4;
+  text-size-adjust: 100%;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  -webkit-tap-highlight-color: transparent;
+ }
+
+ hr {
+  height: 0;
+  color: inherit;
+  border-top-width: 1px;
+ }
+
+ abbr:where([title]) {
+  text-decoration: underline dotted;
+ }
+
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+  font-weight: inherit;
+  font-size: inherit;
+ }
+
+ a {
+  color: inherit;
+  text-decoration: inherit;
+ }
+
+ b,
+ strong {
+  font-weight: bolder;
+ }
+
+ code,
+ kbd,
+ samp,
+ pre {
+  font-size: 1em;
+  font-family:
+   ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+   monospace;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+ }
+
+ small {
+  font-size: 80%;
+ }
+
+ sub,
+ sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+ }
+
+ sub {
+  bottom: -0.25em;
+ }
+
+ sup {
+  top: -0.5em;
+ }
+
+ table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
+ }
+
+ :-moz-focusring {
+  outline: auto;
+ }
+
+ progress {
+  vertical-align: baseline;
+ }
+
+ summary {
+  display: list-item;
+ }
+
+ ol,
+ ul,
+ menu {
+  list-style: none;
+ }
+
+ img,
+ svg,
+ video,
+ canvas,
+ audio,
+ iframe,
+ embed,
+ object {
+  display: block;
+  vertical-align: middle;
+ }
+
+ img,
+ video {
+  max-width: 100%;
+  height: auto;
+ }
+
+ button,
+ input,
+ select,
+ optgroup,
+ textarea {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  background-color: #0000;
+  border-radius: 0;
+  opacity: 1;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+ }
+
+ ::file-selector-button {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  background-color: #0000;
+  border-radius: 0;
+  opacity: 1;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+ }
+
+ :where(select:is([multiple], [size])) optgroup {
+  font-weight: bolder;
+ }
+
+ :where(select:is([multiple], [size])) optgroup option {
+  padding-inline-start: 20px;
+ }
+
+ ::file-selector-button {
+  margin-inline-end: 4px;
+ }
+
+ ::placeholder {
+  opacity: 1;
+ }
+
+ @supports (not ((-webkit-appearance: -apple-pay-button))) or (contain-intrinsic-size: 1px) {
+  ::placeholder {
+   color: currentcolor;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+   ::placeholder {
+    color: color-mix(in oklab, currentcolor 50%, transparent);
+   }
+  }
+ }
+
+ textarea {
+  resize: vertical;
+ }
+
+ ::-webkit-search-decoration {
+  appearance: none;
+ }
+
+ ::-webkit-date-and-time-value {
+  min-height: 1lh;
+  text-align: inherit;
+ }
+
+ ::-webkit-datetime-edit {
+  display: inline-flex;
+ }
+
+ ::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+ }
+
+ ::-webkit-datetime-edit {
+  padding-block: 0;
+ }
+
+ ::-webkit-datetime-edit-year-field {
+  padding-block: 0;
+ }
+
+ ::-webkit-datetime-edit-month-field {
+  padding-block: 0;
+ }
+
+ ::-webkit-datetime-edit-day-field {
+  padding-block: 0;
+ }
+
+ ::-webkit-datetime-edit-hour-field {
+  padding-block: 0;
+ }
+
+ ::-webkit-datetime-edit-minute-field {
+  padding-block: 0;
+ }
+
+ ::-webkit-datetime-edit-second-field {
+  padding-block: 0;
+ }
+
+ ::-webkit-datetime-edit-millisecond-field {
+  padding-block: 0;
+ }
+
+ ::-webkit-datetime-edit-meridiem-field {
+  padding-block: 0;
+ }
+
+ :-moz-ui-invalid {
+  box-shadow: none;
+ }
+
+ button,
+ input:where([type="button"], [type="reset"], [type="submit"]) {
+  appearance: button;
+ }
+
+ ::file-selector-button {
+  appearance: button;
+ }
+
+ ::-webkit-inner-spin-button {
+  height: auto;
+ }
+
+ ::-webkit-outer-spin-button {
+  height: auto;
+ }
+
+ [hidden]:where(:not([hidden="until-found"])) {
+  display: none !important;
+ }
 }
