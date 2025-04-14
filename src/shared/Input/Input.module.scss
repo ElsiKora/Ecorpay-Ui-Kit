@@ -1,0 +1,100 @@
+// Input.module.scss
+
+.label {
+ position: relative;
+ display: flex;
+ flex-direction: column;
+ gap: var(--spacing-5px);
+ padding: var(--spacing-15px);
+ border: var(--spacing-2px) solid var(--color-black-100);
+ border-radius: var(--spacing-15px);
+ cursor: text;
+ transition: all 0.3s ease;
+
+ &:hover,
+ &:focus-within {
+  border-color: var(--color-accent);
+ }
+
+ &.error {
+  border-color: var(--color-red-400);
+ }
+
+ &.disabled {
+  background-color: var(--color-black-100);
+  cursor: default;
+  pointer-events: none;
+ }
+
+ &.center {
+  justify-content: center;
+  text-align: center;
+ }
+
+ @media (width >= 768px) {
+  padding: var(--spacing-20px);
+  border-radius: var(--spacing-20px);
+ }
+}
+
+.labelText {
+ color: var(--color-black-300);
+ font: var(--text-xxs);
+ font-weight: 500;
+
+ @media (width >= 768px) {
+  font: var(--text-sm);
+ }
+}
+
+.inputContainer {
+ display: flex;
+ gap: var(--spacing-5px);
+ font: var(--text-xs);
+
+ @media (width >= 768px) {
+  font: var(--text-base);
+ }
+}
+
+.input {
+ flex: 1;
+ color: var(--color-black);
+ background-color: transparent;
+ outline: none;
+ transition: all 0.3s ease;
+
+ &::placeholder {
+  color: var(--color-black-300);
+ }
+
+ &.center {
+  justify-content: center;
+  text-align: center;
+
+  &::placeholder {
+   text-align: center;
+  }
+
+  &:focus-visible::placeholder {
+   opacity: 0;
+  }
+ }
+
+ &.error {
+  color: var(--color-red-400);
+ }
+}
+
+.errorMsg {
+ position: absolute;
+ bottom: calc(-1 * var(--spacing-5px));
+ color: var(--color-red-400);
+ transform: translateY(100%);
+ opacity: 0;
+ transition: opacity 0.3s ease;
+
+ .label.error & {
+  opacity: 1;
+ }
+}

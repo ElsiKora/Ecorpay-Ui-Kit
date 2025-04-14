@@ -2,6 +2,8 @@ import type { FC, ReactNode } from "react";
 
 import { cn } from "@/utils/cn";
 
+import s from "./Input.module.scss";
+
 export interface InputProperties extends React.InputHTMLAttributes<HTMLInputElement> {
  align?: "center" | "left";
  className?: string;
@@ -32,30 +34,26 @@ export const Input: FC<InputProperties> = (properties) => {
  return (
   <label
    className={cn(
-    "relative flex flex-col gap-5px mob:p-15px tablet:p-5 mob:rounded-[15px] tablet:rounded-[20px] cursor-text transition-colors border-2",
+    s.label,
     {
-     "border-black-100 hover:border-accent focus-within:border-accent": !isError,
-     "border-red-400": isError,
-     "cursor-default bg-black-100 pointer-events-none": disabled,
-     "justify-center text-center": align === "center",
+     [s.center]: align === "center",
+     [s.disabled]: disabled,
+     [s.error]: isError,
     },
     className,
    )}>
    {/* Label text */}
-   {label ? (
-    <span className="text-black-300 mob:text-xxs tablet:text-sm font-medium">{label}</span>
-   ) : null}
+   {label ? <span className={s.labelText}>{label}</span> : null}
 
    {/* Inpfur field container */}
-   <div className="mob:text-xs tablet:text-base flex gap-[5px]">
+   <div className={s.inputContainer}>
     {leftContent}
     <input
      className={cn(
-      "outline-hidden flex-1 text-black placeholder:text-black-300 bg-transparent transition-colors",
+      s.input,
       {
-       "justify-center text-center placeholder:text-center focus-visible:placeholder:opacity-0":
-        align === "center",
-       "text-red-400": isError,
+       [s.center]: align === "center",
+       [s.error]: isError,
       },
       inputFieldClassName,
      )}
@@ -67,15 +65,7 @@ export const Input: FC<InputProperties> = (properties) => {
    </div>
 
    {/* Error msg */}
-   <span
-    className={cn(
-     "absolute -bottom-[5px] translate-y-full text-red-400 opacity-0 transition-opacity",
-     {
-      "opacity-100": isError,
-     },
-    )}>
-    {errorMsg}
-   </span>
+   <span className={s.errorMsg}>{errorMsg}</span>
   </label>
  );
 };
