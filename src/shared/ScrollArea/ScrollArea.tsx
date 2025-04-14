@@ -3,6 +3,8 @@ import type { FC, ReactNode } from "react";
 import { cn } from "@/utils/cn";
 import * as ScrollAreaBase from "@radix-ui/react-scroll-area";
 
+import s from "./ScrollArea.module.scss";
+
 export interface ScrollAreaProperties extends ScrollAreaBase.ScrollAreaProps {
  children: ReactNode;
 
@@ -35,9 +37,9 @@ export const ScrollArea: FC<ScrollAreaProperties> = (properties) => {
  return (
   <ScrollAreaBase.Root
    className={cn(
-    "scrollRoot flex",
+    s.scrollRoot,
     {
-     "flex-col": scrollbarProps?.orientation !== "horizontal",
+     [s.col]: scrollbarProps?.orientation !== "horizontal",
     },
     className,
    )}
@@ -45,14 +47,14 @@ export const ScrollArea: FC<ScrollAreaProperties> = (properties) => {
    {...otherProperties}>
    <ScrollAreaBase.Viewport
     {...scrollViewportProps}
-    className={cn("scrollViewport", scrollViewportClassName)}>
+    className={cn(s.scrollViewport, scrollViewportClassName)}>
     {children}
    </ScrollAreaBase.Viewport>
 
-   <ScrollAreaBase.Scrollbar {...scrollbarProps} className={cn("scrollbar", scrollbarClassName)}>
+   <ScrollAreaBase.Scrollbar {...scrollbarProps} className={cn(s.scrollbar, scrollbarClassName)}>
     <ScrollAreaBase.Thumb
      {...scrollThumbProps}
-     className={cn("scrollThumb", scrollThumbClassName)}
+     className={cn(s.scrollThumb, scrollThumbClassName)}
     />
    </ScrollAreaBase.Scrollbar>
   </ScrollAreaBase.Root>

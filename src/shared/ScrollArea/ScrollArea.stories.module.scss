@@ -1,0 +1,48 @@
+.scrollArea {
+ max-width: 550px;
+ max-height: 165px;
+
+ @media (width >= 768px) {
+  max-height: 240px;
+ }
+}
+
+.scrollbarVertical {
+ transform: translateX(10px);
+}
+
+.scrollbarHorizontal {
+ transform: translateY(10px);
+}
+
+.list {
+ display: flex;
+ flex-direction: column;
+ gap: var(--spacing-8px);
+}
+
+.listHorizontal {
+ display: flex;
+ gap: var(--spacing-8px);
+}
+
+.item {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.label {
+ display: flex;
+ gap: var(--spacing-5px);
+ align-items: center;
+ font: var(--text-base);
+}
+
+.badge {
+ padding: var(--spacing-15px) var(--spacing-6px);
+ color: var(--color-accent);
+ font: var(--text-sm);
+ background-color: var(--color-accent-200);
+ border-radius: var(--spacing-22px);
+}
