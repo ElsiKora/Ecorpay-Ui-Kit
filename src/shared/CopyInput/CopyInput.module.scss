@@ -1,0 +1,29 @@
+.button {
+ text-align: left;
+}
+
+label.input {
+ border-color: var(--color-black-100);
+ cursor: pointer;
+
+ &:hover {
+  background-color: var(--color-accent-100);
+  border-color: var(--color-black-100);
+ }
+
+ &:focus-within {
+  border-color: var(--color-black-100);
+ }
+}
+
+.inputField {
+ cursor: pointer;
+}
+
+.copiedIcon {
+ transition: all 0.3s ease;
+
+ .button.copied:hover & {
+  color: var(--color-black-300);
+ }
+}
