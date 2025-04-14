@@ -13,18 +13,10 @@ export default meta;
 
 type Story = StoryObj<typeof Switch>;
 
-export const DefaultOn: Story = {
+export const Default: Story = {
  args: {
-  checked: true,
   children: "Some text",
   className: "testClass",
- },
-};
-
-export const DefaultOff: Story = {
- args: {
-  checked: false,
-  children: "Some text",
  },
 };
 
