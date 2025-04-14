@@ -2,8 +2,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "@/shared/Button/Button";
 import { DialogClose } from "@/shared/Dialog/DialogClose";
-import { DialogContent } from "@/shared/Dialog/dialogContent";
+import { DialogContent } from "@/shared/Dialog/DialogContent/DialogContent";
 import { DialogTrigger } from "@/shared/Dialog/DialogTrigger";
+import { Description, Title } from "@radix-ui/react-dialog";
 
 import { Dialog } from "./Dialog";
 
@@ -28,9 +29,11 @@ export const Default: Story = {
      <Button>Trigger</Button>
     </DialogTrigger>
     <DialogContent className="flex max-w-96 flex-col gap-4">
-     <h1>Hello world</h1>
+     <Title>Hello world</Title>
 
-     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, nostrum!</p>
+     <Description>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, nostrum!
+     </Description>
 
      <div className="flex w-full items-center gap-2">
       <DialogClose>

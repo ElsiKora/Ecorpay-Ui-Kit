@@ -28,7 +28,7 @@ export {
 export {
  DialogContent,
  type DialogContentProperties as DialogContentProps,
-} from "./shared/Dialog/DialogContent";
+} from "./shared/Dialog/DialogContent/DialogContent";
 export {
  DialogTrigger,
  type DialogTriggerProperties as DialogTriggerProps,
@@ -45,7 +45,8 @@ export { Skeleton, type SkeletonProperties as SkeletonProps } from "./shared/Ske
 export { Switch, type SwitchProperties as SwitchProps } from "./shared/Switch/Switch";
 export { TechWork, type TechWorkProperties as TechWorkProps } from "./shared/TechWork/TechWork";
 export { Toast, type ToastProperties as ToastProps } from "./shared/Toast/Toast";
-
 export { Tooltip, type TooltipProperties as TooltipProps } from "./shared/Tooltip/Tooltip";
+
+export { Description as DialogDescription, Title as DialogTitle } from "@radix-ui/react-dialog";
 
 export { Slot, type SlotProps } from "@radix-ui/react-slot";
