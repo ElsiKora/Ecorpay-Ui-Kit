@@ -1,0 +1,41 @@
+// Banner.module.scss
+
+.banner {
+ position: relative;
+ display: flex;
+ flex-direction: column;
+ gap: var(--spacing-20px);
+ padding: var(--spacing-25px);
+ border-radius: var(--spacing-20px);
+
+ @media (width >= 768px) {
+  padding: var(--spacing-40px);
+ }
+
+ &.danger {
+  color: var(--color-red-400);
+  border: var(--spacing-2px) solid var(--color-red-400);
+ }
+
+ &.warn {
+  color: var(--color-orange-400);
+  border: var(--spacing-2px) solid var(--color-orange-400);
+ }
+}
+
+.title {
+ font: var(--text-base);
+ font-weight: 500;
+
+ @media (width >= 768px) {
+  font: var(--text-xl);
+ }
+}
+
+.description {
+ color: var(--color-black);
+
+ @media (width >= 768px) {
+  font: var(--text-sm);
+ }
+}
