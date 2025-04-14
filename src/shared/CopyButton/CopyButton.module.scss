@@ -1,0 +1,54 @@
+// CopyButton.module.scss
+
+.button {
+ color: var(--color-accent);
+ cursor: pointer;
+
+ &:hover {
+  color: var(--color-accent-500);
+ }
+
+ &:disabled {
+  color: var(--color-black-300);
+  pointer-events: none;
+ }
+
+ &.text_m {
+  display: flex;
+  gap: var(--spacing-5px);
+  align-items: center;
+  font: var(--text-xs);
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  @media (width >= 768px) {
+   font: var(--text-sm);
+  }
+ }
+
+ &.text_m_reversed {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: var(--spacing-5px);
+  align-items: center;
+  font: var(--text-xs);
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  @media (width >= 768px) {
+   font: var(--text-sm);
+  }
+ }
+
+ &.copied {
+  color: var(--color-black-300);
+ }
+}
+
+.copiedIcon {
+ transition: all 0.3s ease;
+
+ .button.copied:hover & {
+  color: var(--color-black);
+ }
+}
