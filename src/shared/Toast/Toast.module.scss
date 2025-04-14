@@ -1,0 +1,58 @@
+// Toast.module.scss
+
+.toast {
+ display: flex;
+ gap: var(--spacing-20px);
+ align-items: center;
+ padding: var(--spacing-15px);
+ font: var(--text-xs);
+ border-radius: var(--spacing-15px);
+
+ &.base {
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border: var(--spacing-2px) solid var(--color-black-100);
+ }
+
+ &.primary {
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border: var(--spacing-2px) solid var(--color-accent);
+ }
+
+ &.danger {
+  color: var(--color-red-400);
+  background-color: var(--color-red-100);
+  border: var(--spacing-2px) solid var(--color-red-300);
+ }
+
+ &.warn {
+  color: var(--color-orange-400);
+  background-color: var(--color-orange-100);
+  border: var(--spacing-2px) solid var(--color-orange-300);
+ }
+
+ @media (width >= 768px) {
+  padding: var(--spacing-20px);
+  font: var(--text-sm);
+  border-radius: var(--spacing-20px);
+ }
+}
+
+.icon {
+ flex-shrink: 0;
+ width: 20px;
+ height: 20px;
+
+ &.default {
+  color: var(--color-black);
+ }
+
+ &.warn {
+  color: var(--color-orange-300);
+ }
+}
+
+.close {
+ margin-left: auto;
+}
