@@ -23,7 +23,7 @@
    "@/*": ["src/*"]
   },
   "resolveJsonModule": true,
-  "rootDir": "./",
+  "rootDirs": ["./", "dts"],
   "skipLibCheck": true,
   /* Linting */
   "strict": true,
@@ -32,7 +32,13 @@
   "useDefineForClassFields": true
  },
  "exclude": ["node_modules", "dist"],
- "include": ["src/**/*", "tailwind.config.ts", ".storybook/main.ts", ".storybook/preview.tsx"],
+ "include": [
+  "src/**/*",
+  "tailwind.config.ts",
+  ".storybook/main.ts",
+  ".storybook/preview.tsx",
+  "dts"
+ ],
  "ts-node": {
   "compilerOptions": {
    "jsx": "react-jsx",
