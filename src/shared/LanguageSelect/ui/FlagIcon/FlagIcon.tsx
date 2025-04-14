@@ -2,6 +2,8 @@ import type { FC } from "react";
 
 import { cn } from "@/utils/cn";
 
+import s from "./FlagIcon.module.scss";
+
 interface FlagIconProperties {
  className?: string;
  code: string;
@@ -17,7 +19,7 @@ export const FlagIcon: FC<FlagIconProperties> = ({ className, code }) => {
  return (
   <img
    alt={`${code} flag`}
-   className={cn("w-20px h-20px shrink-0 border-2 border-black-100 rounded-md", className)}
+   className={cn(s.flag, className)}
    height={22}
    onError={(event) => {
     event.currentTarget.src = fallback;

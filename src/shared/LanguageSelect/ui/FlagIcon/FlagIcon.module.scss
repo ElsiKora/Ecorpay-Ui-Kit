@@ -1,0 +1,7 @@
+.flag {
+ flex-shrink: 0;
+ width: 20px;
+ height: 20px;
+ border: var(--spacing-2px) solid var(--color-black-100);
+ border-radius: var(--spacing-8px);
+}
