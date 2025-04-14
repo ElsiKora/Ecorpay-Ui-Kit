@@ -3,9 +3,11 @@
 
 export {
  Accordion,
+ AccordionItem,
+ type AccordionItemProperties as AccordionItemProps,
  type AccordionProperties as AccordionProps,
-} from "./shared/Accordion/Accordion";
-export { AccordionItem, type AccordionItemProperties } from "./shared/Accordion/AccordionItem";
+} from "./shared/Accordion";
+
 export { Banner, type BannerProperties as BannerProps } from "./shared/Banner/Banner";
 export { Boundary, type BoundaryProperties as BoundaryProps } from "./shared/Boundary/Boundary";
 export { Button, type ButtonProperties as ButtonProps } from "./shared/Button/Button";

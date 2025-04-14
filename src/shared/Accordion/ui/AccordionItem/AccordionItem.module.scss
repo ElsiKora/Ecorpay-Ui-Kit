@@ -1,0 +1,20 @@
+.item {
+ border-radius: var(--spacing-16px);
+ transition: all 0.3s ease;
+
+ &.filled {
+  background-color: var(--color-accent-100);
+
+  &[data-state="closed"]:hover {
+   background-color: var(--color-accent-200);
+  }
+ }
+
+ &.outline {
+  border: var(--spacing-2px) solid var(--color-black-100);
+
+  &[data-state="closed"]:hover {
+   border-color: var(--color-accent);
+  }
+ }
+}

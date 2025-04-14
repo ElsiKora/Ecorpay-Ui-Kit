@@ -4,8 +4,10 @@ import { useAccordionContext } from "@/shared/Accordion/hooks/useAccordionContex
 import { cn } from "@/utils/cn";
 import * as AccordionBase from "@radix-ui/react-accordion";
 
-import { AccordionContent } from "./AccordionContent";
-import { AccordionTrigger } from "./AccordionTrigger";
+import { AccordionContent } from "../AccordionContent/AccordionContent";
+import { AccordionTrigger } from "../AccordionTrigger/AccordionTrigger";
+
+import s from "./AccordionItem.module.scss";
 
 export interface AccordionItemProperties extends AccordionBase.AccordionItemProps {
  children: ReactNode | string;
@@ -23,10 +25,10 @@ export const AccordionItem: FC<AccordionItemProperties> = (properties) => {
  return (
   <AccordionBase.Item
    className={cn(
-    "group rounded-2xl transition-colors",
+    s.item,
     {
-     "bg-accent-100 data-[state=closed]:hover:bg-accent-200": variant === "filled",
-     "border-2 border-black-100 data-[state=closed]:hover:border-accent": variant === "outline",
+     [s.filled]: variant === "filled",
+     [s.outline]: variant === "outline",
     },
     className,
    )}
