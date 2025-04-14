@@ -5,56 +5,43 @@ import { cn } from "@/utils/cn";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const buttonVariants = cva(
- "disabled:bg-black-100 disabled:text-black-300 font-medium transition-all",
- {
-  defaultVariants: {
-   variant: "primary-m",
-  },
-  variants: {
-   variant: {
-    //   Clear variant
-    clear: "",
-    //   Gray variants
-    "gray-l":
-     "bg-black-100 px-30px py-15px hover:bg-black-200 mob:rounded-[0.9375rem] mob:text-sm tablet:rounded-[1.25rem] tablet:text-base text-black",
+import s from "./Button.module.scss";
 
-    "gray-m":
-     "bg-black-100 py-10px hover:bg-black-200 mob:px-15px mob:text-xs tablet:px-20px tablet:text-sm rounded-[1.25rem] text-black",
+const buttonVariants = cva(s.button, {
+ defaultVariants: {
+  variant: "primary-m",
+ },
+ variants: {
+  variant: {
+   //   Clear variant
+   clear: "",
+   //   Gray variants
+   "gray-l": s.gray_l,
+   "gray-m": s.gray_m,
 
-    "outline-gray-s":
-     "border-black-100 text-black-300 hover:border-accent hover:text-accent mob:px-10px mob:py-7px mob:text-xxs tablet:px-15px tablet:py-10px tablet:text-xs rounded-[1.25rem] border-2",
-    // Outline variants
-    "outline-primary-s":
-     "border-accent text-accent mob:px-10px mob:py-7px mob:text-xxs tablet:px-15px tablet:py-10px tablet:text-xs rounded-[1.25rem] border-2",
+   // Outline variants
+   "outline-gray-s": s.outline_gray_s,
+   "outline-primary-s": s.outline_primary_s,
 
-    // Primary variants
-    "primary-l":
-     "bg-accent px-30px py-15px hover:bg-accent-500 mob:rounded-[0.9375rem] mob:text-sm tablet:rounded-[1.25rem] tablet:text-base text-white",
-    "primary-m":
-     "bg-accent py-10px hover:bg-accent-500 mob:px-15px mob:text-xs tablet:px-20px tablet:text-sm rounded-[1.25rem] text-white",
+   // Primary variants
+   "primary-l": s.primary_l,
+   "primary-m": s.primary_m,
 
-    // Red variants
-    "red-l":
-     "px-30px py-15px hover:text-red mob:rounded-[0.9375rem] mob:text-sm tablet:rounded-[1.25rem] tablet:text-base bg-red-200 text-red-400 hover:bg-red-300",
+   // Red variants
+   "red-l": s.red_l,
 
-    // Secondary variants
-    "secondary-l":
-     "bg-accent-100 px-30px py-15px text-accent hover:bg-accent-200 mob:rounded-[0.9375rem] mob:text-sm tablet:rounded-[1.25rem] tablet:text-base",
-    "secondary-m":
-     "bg-accent-100 py-10px text-accent hover:bg-accent-200 mob:px-15px mob:text-xs tablet:px-20px tablet:text-sm rounded-[1.25rem]",
+   // Secondary variants
+   "secondary-l": s.secondary_l,
+   "secondary-m": s.secondary_m,
 
-    // Text variants
-    "text-l":
-     "px-30px py-15px mob:rounded-[0.9375rem] mob:border-2 mob:border-black-100 mob:text-sm mob:text-black mob:hover:border-accent-100 mob:hover:bg-accent-100 tablet:rounded-[1.25rem] tablet:border-none tablet:text-base tablet:text-black-300 tablet:hover:text-accent bg-transparent",
+   // Text variants
+   "text-l": s.text_l,
 
-    // White variants
-    "white-m":
-     "py-10px mob:px-15px mob:text-xs tablet:px-20px tablet:text-sm rounded-[1.25rem] bg-white text-black hover:bg-black hover:text-white",
-   },
+   // White variants
+   "white-m": s.white_m,
   },
  },
-);
+});
 
 export interface ButtonProperties
  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -64,18 +51,27 @@ export interface ButtonProperties
 }
 
 export const Button: FC<ButtonProperties> = (properties) => {
- const { asChild, children, className, loading, variant, ...otherProperties } = properties;
+ const {
+  asChild,
+  children,
+  className,
+  loading,
+  type = "button",
+  variant,
+  ...otherProperties
+ } = properties;
 
  const Comp = asChild ? Slot : "button";
 
  return (
   <Comp
-   className={cn(buttonVariants({ variant }), className, { relative: loading })}
+   className={cn(buttonVariants({ variant }), className, { [s.loading]: loading })}
+   type={type}
    {...otherProperties}>
    {loading ? (
     <>
-     <span className="opacity-0">{children}</span>
-     <IconLoader className="size-20px absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+     <span className={cn(s.content, { [s.loading]: loading })}>{children}</span>
+     <IconLoader className={s.loader} />
     </>
    ) : (
     children

@@ -20,7 +20,7 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
  render: (arguments_) => {
   return (
-   <div className="flex items-end gap-3">
+   <div style={{ alignItems: "flex-end", display: "flex", gap: "12px" }}>
     <Button variant="primary-m" {...arguments_}>
      Primary medium
     </Button>
@@ -43,7 +43,7 @@ export const Loading: Story = {
 export const Secondary: Story = {
  render: (arguments_) => {
   return (
-   <div className="flex items-end gap-3">
+   <div style={{ alignItems: "flex-end", display: "flex", gap: "12px" }}>
     <Button variant="secondary-m" {...arguments_}>
      Secondary medium
     </Button>
@@ -58,7 +58,7 @@ export const Secondary: Story = {
 export const Red: Story = {
  render: (arguments_) => {
   return (
-   <div className="flex items-end gap-3">
+   <div style={{ alignItems: "flex-end", display: "flex", gap: "12px" }}>
     <Button variant="red-l" {...arguments_}>
      Red large
     </Button>
@@ -70,7 +70,7 @@ export const Red: Story = {
 export const Gray: Story = {
  render: (arguments_) => {
   return (
-   <div className="flex items-end gap-3">
+   <div style={{ alignItems: "flex-end", display: "flex", gap: "12px" }}>
     <Button variant="gray-m" {...arguments_}>
      Gray medium
     </Button>
@@ -85,7 +85,7 @@ export const Gray: Story = {
 export const White: Story = {
  render: (arguments_) => {
   return (
-   <div className="flex items-end gap-3">
+   <div style={{ alignItems: "flex-end", display: "flex", gap: "12px" }}>
     <Button variant="white-m" {...arguments_}>
      White medium
     </Button>
@@ -97,7 +97,7 @@ export const White: Story = {
 export const OutlinePrimary: Story = {
  render: (arguments_) => {
   return (
-   <div className="flex items-end gap-3">
+   <div style={{ alignItems: "flex-end", display: "flex", gap: "12px" }}>
     <Button variant="outline-primary-s" {...arguments_}>
      Outline small
     </Button>
@@ -109,7 +109,7 @@ export const OutlinePrimary: Story = {
 export const OutlineGray: Story = {
  render: (arguments_) => {
   return (
-   <div className="flex items-end gap-3">
+   <div style={{ alignItems: "flex-end", display: "flex", gap: "12px" }}>
     <Button variant="outline-gray-s" {...arguments_}>
      Outline small
     </Button>
@@ -121,7 +121,7 @@ export const OutlineGray: Story = {
 export const Text: Story = {
  render: (arguments_) => {
   return (
-   <div className="flex items-end gap-3">
+   <div style={{ alignItems: "flex-end", display: "flex", gap: "12px" }}>
     <Button variant="text-l" {...arguments_}>
      Text large
     </Button>
