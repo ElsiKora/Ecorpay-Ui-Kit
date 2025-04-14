@@ -1,0 +1,37 @@
+.rounded_default {
+ border-radius: 20px;
+}
+
+.rounded_full {
+ border-radius: 100%;
+}
+
+.skeleton {
+ display: block;
+ background: linear-gradient(
+  90deg,
+  var(--color-black-100) 0%,
+  var(--color-black-200) 50%,
+  var(--color-black-100) 100%
+ );
+ background-size: 200% 100%;
+ animation:
+  shimmer 1s linear infinite,
+  pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+ @keyframes pulse {
+  50% {
+   opacity: 0.5;
+  }
+ }
+
+ @keyframes shimmer {
+  0% {
+   background-position: 200% 0;
+  }
+
+  100% {
+   background-position: 0 0;
+  }
+ }
+}

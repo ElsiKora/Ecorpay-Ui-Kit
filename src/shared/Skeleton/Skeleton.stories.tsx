@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Skeleton } from "./Skeleton";
 
+import s from "./Skeleton.stories.module.scss";
+
 const meta: Meta<typeof Skeleton> = {
  component: Skeleton,
  parameters: {
@@ -16,20 +18,20 @@ type Story = StoryObj<typeof Skeleton>;
 
 export const Default: Story = {
  args: {
-  className: "h-5 w-[300px]",
+  className: s.skeleton,
  },
 };
 
 export const Text: Story = {
  args: {
-  className: "h-5 w-[300px]",
+  className: s.skeleton,
  },
  render: () => {
   return (
-   <div className="flex flex-col gap-1">
-    <Skeleton className="h-5 w-[200px]" />
-    <Skeleton className="h-5 w-[270px]" />
-    <Skeleton className="h-5 w-[300px]" />
+   <div className={s.container}>
+    <Skeleton className={s.skeleton} />
+    <Skeleton className={s.skeleton} />
+    <Skeleton className={s.skeleton} />
    </div>
   );
  },
