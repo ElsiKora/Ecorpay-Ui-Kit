@@ -1,5 +1,4 @@
-@import url("./css/base.css");
-@import url("./css/theme/theme.css");
+@import url("./base.css");
 
 :root,
 :host {
