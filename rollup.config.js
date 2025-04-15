@@ -149,7 +149,8 @@ export default defineConfig([
   ],
  },
 
- // Конфиг для theme.css
+
+ // 4️⃣ Конфиг для theme.css
  {
   input: "src/assets/theme.css",
   output: {

@@ -1,9 +1,13 @@
-/* Use only valid namespaces */
-/* Doc --  https://tailwindcss.com/docs/theme#theme-variable-namespaces */
+@import url("./base.css");
 
 :root,
 :host {
- /* Colors */
+ --animate-fade-in: fadein 0.3s ease-out forwards;
+ --animate-fade-out: fadeout 0.2s ease-in forwards;
+ --animate-language-close: language-close 0.15s ease-in-out;
+ --animate-language-open: language-open 0.15s ease-in-out;
+ --animate-scale-in: scalein 0.3s ease-out forwards;
+ --animate-scale-out: scaleout 0.2s ease-in forwards;
  --color-accent: #3077f7;
  --color-accent-100: #f6f9ff;
  --color-accent-200: #edf2fd;
@@ -29,26 +33,11 @@
  --color-red-300: #f5caca;
  --color-red-400: #d71616;
  --color-white: #fff;
-
- /* Text/Font */
- --font-main: onest, serif;
- --text-base: 1rem, 130%;
- --text-lg: 1.125rem, 130%;
- --text-sm: 0.875rem, 130%;
- --text-xl: 1.375rem, 130%;
- --text-xs: 0.75rem, 130%;
- --text-xxl: 2.625rem, 130%;
- --text-xxs: 0.625rem, 130%;
-
- /* Scroll */
  --scrollbar-size: 5px;
-
- /* Breakpoints */
+ --breakpoint-mob: 0px;
  --breakpoint-mob-large: 425px;
  --breakpoint-pc: 1024px;
  --breakpoint-tablet: 768px;
-
- /* Spacing */
  --spacing-1px: 0.0625rem;
  --spacing-2px: 0.125rem;
  --spacing-3px: 0.1875rem;
@@ -149,4 +138,12 @@
  --spacing-98px: 6.125rem;
  --spacing-99px: 6.1875rem;
  --spacing-100px: 6.25rem;
+ --font-main: onest, serif;
+ --text-base: 1rem, 130%;
+ --text-lg: 1.125rem, 130%;
+ --text-sm: 0.875rem, 130%;
+ --text-xl: 1.375rem, 130%;
+ --text-xs: 0.75rem, 130%;
+ --text-xxl: 2.625rem, 130%;
+ --text-xxs: 0.625rem, 130%;
 }
