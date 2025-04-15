@@ -136,7 +136,7 @@ export default defineConfig([
   },
   plugins: [
    postcss({
-    extract: "css/fonts.css",
+    extract: "fonts.css",
     include: ["src/assets/fonts.css"],
     minimize: true,
     plugins: [autoprefixer()],
@@ -161,7 +161,18 @@ export default defineConfig([
     extract: "css/theme.css",
     include: ["src/assets/theme.css"],
     minimize: true,
-    plugins: [autoprefixer()],
+    plugins: [
+     // Кастомный плагин для замены :root на @theme static
+     (css) => {
+      css.walkRules(/:root|:host,\s*:root/, (rule) => {
+       rule.selector = "@theme static";
+      });
+
+      return css;
+     },
+
+     autoprefixer(),
+    ],
     sourceMap: false,
    }),
    del({

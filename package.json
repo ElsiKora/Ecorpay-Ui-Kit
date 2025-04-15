@@ -12,9 +12,9 @@
    "require": "./dist/index.cjs.js"
   },
   "./css/base.css": "./dist/css/base.css",
-  "./css/fonts.css": "./dist/css/fonts.css",
   "./css/style.css": "./dist/css/style.css",
-  "./css/theme.css": "./dist/css/theme.css"
+  "./css/theme.css": "./dist/css/theme.css",
+  "./fonts.css": "./dist/fonts.css"
  },
  "main": "dist/index.cjs.js",
  "module": "dist/index.esm.js",
