@@ -4,6 +4,7 @@ import type { FC } from "react";
 import type { LangItem } from "../../model/language.type";
 
 import ShevronIcon from "@/icons/shevron.svg";
+import { FlagIcon } from "@/shared/FlagIcon/FlagIcon";
 import { cn } from "@/utils/cn";
 import * as SelectBase from "@radix-ui/react-select";
 import { cva } from "class-variance-authority";
@@ -11,7 +12,6 @@ import { useState } from "react";
 
 import { ScrollArea } from "../../../ScrollArea/ScrollArea";
 import { filterLanguageList } from "../../helper/filterLanguageList";
-import { FlagIcon } from "../FlagIcon/FlagIcon";
 import { LanguageItem } from "../LanguageItem";
 
 import s from "./LanguageSelect.module.scss";
