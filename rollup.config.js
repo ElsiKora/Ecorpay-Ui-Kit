@@ -93,15 +93,7 @@ export default defineConfig([
 
    copy({
     flatten: false,
-    targets: [
-     { dest: "dist", src: "public/fonts/**/*" },
-     {
-      dest: "dist",
-      expandDirectories: true,
-      onlyFiles: true,
-      src: ["public/icons/**/*", "!public/icons/_temp_flags_"],
-     },
-    ],
+    targets: [{ dest: "dist", src: "public/fonts/**/*" }],
    }),
   ],
  },
