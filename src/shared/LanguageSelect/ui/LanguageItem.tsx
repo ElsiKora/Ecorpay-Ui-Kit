@@ -1,10 +1,9 @@
 import type { SelectItemProps } from "@radix-ui/react-select";
 import type { FC, RefObject } from "react";
 
+import { FlagIcon } from "@/shared/FlagIcon/FlagIcon";
 import { cn } from "@/utils/cn";
 import { Item, ItemText } from "@radix-ui/react-select";
-
-import { FlagIcon } from "./FlagIcon/FlagIcon";
 
 interface LanguageItemProperties extends SelectItemProps {
  flagIconClassName?: string;
