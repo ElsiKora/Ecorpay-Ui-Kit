@@ -212,6 +212,7 @@ tsconfig.tsbuildinfo
 .clinic/
 .depcruise.cache
 .elsikora/commitlint-ai.config.js
+.elsikora/setup-wizard.config.js
 
 # Documentation
 /docs/_build/
