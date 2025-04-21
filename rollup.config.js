@@ -55,7 +55,7 @@ export default defineConfig([
      new Promise((resolve, reject) => {
       if (id.endsWith(".scss")) {
        try {
-        const result = sass.renderSync({
+        const result = sass.compileStringAsync({
          data: content,
          file: id,
          outFile: "styles.css",

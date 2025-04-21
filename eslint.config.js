@@ -81,28 +81,7 @@ export default [
 
  {
   rules: {
-   "@elsikora/json/no-comments": "off", // Запрещает комменты в json
-   "@elsikora/jsx/no-autofocus": "off", // Запрещает автофокус на инпутах,
-   "@elsikora/react/1/naming-convention/filename": "off", // Некорректные правила неймингов,
-   "@elsikora/react/1/naming-convention/filename-extension": "off", // Заствялет указывать расширения файлов при импорте
    "@elsikora/react/1/no-context-provider": "off", // Форматирует Context.Provider в Context. Не собирается билд
-   "@elsikora/react/2/jsx-curly-brace-presence": "off", // Заставляет оборачивать все строки в {}
-   //    ["error", { children: "never", props: "never" }],
-   "@elsikora/react/2/require-default-props": "off",
-   "@elsikora/sonar/different-types-comparison": "off", // Запрещает сравнивать разные типы данных
-   "@elsikora/tailwindcss/enforces-negative-arbitrary-values": "off", // Запрещает указывать негативные аттрибуты
-   "@elsikora/typescript/explicit-function-return-type": "off", // Заставляет везде явно указывать тип возврата
-   "@elsikora/typescript/explicit-module-boundary-types": "off", // Заставляет везде явно указывать тип возврата
-   "@elsikora/typescript/naming-convention": "off", // Некорректные правила неймингов
-   "@elsikora/typescript/no-floating-promises": "off", // Заставляет ждать все промисы. Не собирается билд
-   "@elsikora/typescript/no-magic-numbers": "off", // Заставляет выносить все числа в отдельные константы и конфиги
-   "@elsikora/typescript/restrict-template-expressions": "off",
-   //  ["error", { allowNumber: true }], // Запрещает приводить к строке все, кроме чисел в интерполяции
-   "@elsikora/typescript/typedef": "off", // Заставляет везде явно указывать типы,
-   "@elsikora/typescript/unbound-method": "off", // Запрещает деструтуризировать функции
-
-   //    "@typescript-eslint/no-explicit-any": "error",
-   "no-console": ["warn", { allow: ["warn", "error"] }],
   },
  },
 ];
